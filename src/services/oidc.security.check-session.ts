@@ -54,24 +54,22 @@ export class OidcSecurityCheckSession {
     }
 
     pollServerSession(clientId: any) {
-        let source = Observable.timer(3000, 3000)
+            let source = Observable.timer(3000, 3000)
             .timeInterval()
             .pluck('interval')
             .take(10000);
-
-        let subscription = source.subscribe(() => {
+            try {
+            let subscription = source.subscribe(() => {
                 this.oidcSecurityCommon.logDebug(this.sessionIframe);
                 let session_state = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_session_state);
+                //console.log("checking session...", session_state);
                 if (session_state && session_state !== '') {
-                    this.sessionIframe.contentWindow.postMessage(clientId + ' ' + session_state, this.authConfiguration.stsServer);
+                    //this.sessionIframe.contentWindow.postMessage(clientId + ' ' + session_state, this.authConfiguration.stsServer);
                 }
-            },
-            (err: any) => {
-                this.oidcSecurityCommon.logError('pollServerSession error: ' + err);
-            },
-            () => {
-                this.oidcSecurityCommon.logDebug('checksession pollServerSession completed');
             });
+            } catch(e) {
+            	
+            }
     }
 
     private messageHandler(e: any) {
