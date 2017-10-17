@@ -171,6 +171,38 @@ export class OidcSecurityService {
 
     }
 
+    authorize() {
+        let data = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_well_known_endpoints);
+        if (data && data !== '') {
+            this.authWellKnownEndpointsLoaded = true;
+        }
+
+        if (!this.authWellKnownEndpointsLoaded) {
+            this.oidcSecurityCommon.logError('Well known endpoints must be loaded before user can login!')
+            return;
+        }
+
+        if (!this.oidcSecurityValidation.config_validate_response_type(this.authConfiguration.response_type)) {
+            // invalid response_type
+            return
+        }
+
+        this.resetAuthorizationData(false);
+
+        this.oidcSecurityCommon.logDebug('BEGIN Authorize, no auth data');
+
+        let nonce = 'N' + Math.random() + '' + Date.now();
+        let state = Date.now() + '' + Math.random();
+
+        this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_auth_state_control, state);
+        this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_auth_nonce, nonce);
+        this.oidcSecurityCommon.logDebug('AuthorizedController created. local state: ' + this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_auth_state_control));
+
+        let url = this.createAuthorizeUrl(nonce, state, this.authWellKnownEndpoints.authorization_endpoint);
+        //this.popup(url, 'QPONS\' AUTHORIZATION PAGE', 500, 500);
+        window.location.href = url;
+    }
+
     authorizeWithPopup(authenticationScheme: string = "local") {
         this._popupFor = "login";
         let data = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_well_known_endpoints);
@@ -214,6 +246,49 @@ export class OidcSecurityService {
         //window.location.href = url;
     }
 
+    authorizeWithWebview(authenticationScheme: string = "local") {
+        this._popupFor = "login";
+        let data = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_well_known_endpoints);
+        if (data && data !== '') {
+            this.authWellKnownEndpointsLoaded = true;
+        }
+
+        if (!this.authWellKnownEndpointsLoaded) {
+            this.oidcSecurityCommon.logError('Well known endpoints must be loaded before user can login!')
+            return;
+        }
+
+        if (!this.oidcSecurityValidation.config_validate_response_type(this.authConfiguration.response_type)) {
+            // invalid response_type
+            return
+        }
+
+        this.resetAuthorizationData(false);
+
+        this.oidcSecurityCommon.logDebug('BEGIN Authorize, no auth data');
+
+        let nonce = 'N' + Math.random() + '' + Date.now();
+        let state = Date.now() + '' + Math.random();
+
+        this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_auth_state_control, state);
+        this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_auth_nonce, nonce);
+        this.oidcSecurityCommon.logDebug('AuthorizedController created. local state: ' + this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_auth_state_control));
+
+        let url = this.createAuthorizeUrl(nonce, state, this.authWellKnownEndpoints.authorization_endpoint);
+
+        url = url + "&authenticationScheme="+authenticationScheme;
+
+        console.log(url);
+
+        if(this._popupFor == "afterRegistration") {
+          this._popup.location.href = url;
+        } else {
+          this.webview(url, '_blank');
+        }
+
+        //window.location.href = url;
+    }
+
     popup(url: string, title: string, w: number, h: number) {
       let options: string;
       this.CheckForPopupClosedInterval = 2000;
@@ -234,7 +309,7 @@ export class OidcSecurityService {
       options += ',height=' + h;
       options += ',top='    + top;
       options += ',left='   + left;
-
+      console.log("hello");
       this._popup = window.open(url, title, options);
       if(this._popupFor == "login") {
         this._checkForPopupClosedTimer = window.setInterval(this._checkForPopupClosed.bind(this), this.CheckForPopupClosedInterval);
@@ -242,6 +317,29 @@ export class OidcSecurityService {
         this._checkForPopupClosedTimer = window.setInterval(this._checkForLogoutPopupClosed.bind(this), this.CheckForPopupClosedInterval);
       }
     }
+
+    webview(url: string, target: string) {
+        let options: string;
+        this.CheckForPopupClosedInterval = 2000;
+  
+        options += 'location=yes,status=yes';
+
+        this._popup = window.open(url, target, options);
+        this._popup.addEventListener('loadstart', (event) => { 
+            console.log(event);
+            let url = event.url;
+            let a = url.split('/');
+            a = a[(a.length - 1)];
+            if(url.indexOf("#") != "-1") {
+                this._popup.close();
+                this.authorizedCallbackForWebview(url);
+                this.popup_cleanup();  
+            }
+            if(a == "login") {
+                this.authorizeWithWebview();
+            }
+        });
+      }
 
     popup_cleanup() {
 
@@ -253,7 +351,7 @@ export class OidcSecurityService {
 
     _checkForPopupClosed() {
       try {
-        //console.log(this._popup.location.href);
+        console.log(this._popup.location.href);
         if(this._popup.location.href != 'about:blank' && this._popup.location.href != undefined) {
             let a = this._popup.location.href.split('/');
             a = a[(a.length - 1)];
@@ -294,6 +392,128 @@ export class OidcSecurityService {
       } catch(err) {
         //console.log(err);
       }
+    }
+
+    authorizedCallbackForWebview(url:string) {
+        let silentRenew = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_silent_renew_running);
+        let isRenewProcess = (silentRenew === 'running');
+
+        this.oidcSecurityCommon.logDebug('BEGIN authorizedCallback, no auth data');
+        this.resetAuthorizationData(isRenewProcess);
+
+        let hash = url.split('#')[1];
+
+        console.log(hash);
+
+        let result: any = hash.split('&').reduce(function (result: any, item: string) {
+            let parts = item.split('=');
+            result[parts[0]] = parts[1];
+            return result;
+        }, {});
+
+        console.log(result);
+
+        this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_auth_result, result);
+
+        this.oidcSecurityCommon.logDebug(result);
+        this.oidcSecurityCommon.logDebug('authorizedCallback created, begin token validation');
+
+        let access_token = '';
+        let id_token = '';
+        let authResponseIsValid = false;
+        let decoded_id_token: any;
+
+        this.getSigningKeys()
+            .subscribe(jwtKeys => {
+                this.jwtKeys = jwtKeys;
+
+                if (!result.error) {
+
+                    // validate state
+                    if (this.oidcSecurityValidation.validateStateFromHashCallback(result.state, this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_auth_state_control))) {
+                        if (this.authConfiguration.response_type === 'id_token token') {
+                            access_token = result.access_token;
+                        }
+                        id_token = result.id_token;
+
+                        let headerDecoded;
+                        decoded_id_token = this.oidcSecurityValidation.getPayloadFromToken(id_token, false);
+                        headerDecoded = this.oidcSecurityValidation.getHeaderFromToken(id_token, false);
+
+                        // validate jwt signature
+                        if (this.oidcSecurityValidation.validate_signature_id_token(id_token, this.jwtKeys)) {
+                            // validate nonce
+                            if (this.oidcSecurityValidation.validate_id_token_nonce(decoded_id_token, this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_auth_nonce))) {
+                                // validate required fields id_token
+                                if (this.oidcSecurityValidation.validate_required_id_token(decoded_id_token)) {
+                                    // validate max offset from the id_token issue to now
+                                    if (this.oidcSecurityValidation.validate_id_token_iat_max_offset(decoded_id_token, this.authConfiguration.max_id_token_iat_offset_allowed_in_seconds)) {
+                                        // validate iss
+                                        if (this.oidcSecurityValidation.validate_id_token_iss(decoded_id_token, this.authWellKnownEndpoints.issuer)) {
+                                            // validate aud
+                                            if (this.oidcSecurityValidation.validate_id_token_aud(decoded_id_token, this.authConfiguration.client_id)) {
+                                                // validate_id_token_exp_not_expired
+                                                if (this.oidcSecurityValidation.validate_id_token_exp_not_expired(decoded_id_token)) {
+                                                    // flow id_token token
+                                                    if (this.authConfiguration.response_type === 'id_token token') {
+                                                        // valiadate at_hash and access_token
+                                                        if (this.oidcSecurityValidation.validate_id_token_at_hash(access_token, decoded_id_token.at_hash) || !access_token) {
+                                                            authResponseIsValid = true;
+                                                            this.successful_validation();
+                                                        } else {
+                                                            this.oidcSecurityCommon.logWarning('authorizedCallback incorrect at_hash');
+                                                        }
+                                                    } else {
+                                                        authResponseIsValid = true;
+                                                        this.successful_validation();
+                                                    }
+                                                } else {
+                                                    this.oidcSecurityCommon.logWarning('authorizedCallback token expired');
+                                                }
+                                            } else {
+                                                this.oidcSecurityCommon.logWarning('authorizedCallback incorrect aud');
+                                            }
+                                        } else {
+                                            this.oidcSecurityCommon.logWarning('authorizedCallback incorrect iss does not match authWellKnownEndpoints issuer');
+                                        }
+                                    } else {
+                                        this.oidcSecurityCommon.logWarning('authorizedCallback Validation, iat rejected id_token was issued too far away from the current time');
+                                    }
+                                } else {
+                                    this.oidcSecurityCommon.logDebug('authorizedCallback Validation, one of the REQUIRED properties missing from id_token');
+                                }
+                            } else {
+                                this.oidcSecurityCommon.logWarning('authorizedCallback incorrect nonce');
+                            }
+                        } else {
+                            this.oidcSecurityCommon.logDebug('authorizedCallback Signature validation failed id_token');
+                        }
+                    } else {
+                        this.oidcSecurityCommon.logWarning('authorizedCallback incorrect state');
+                    }
+                }
+
+                this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_silent_renew_running, '');
+
+                if (authResponseIsValid) {
+                    this.setAuthorizationData(access_token, id_token);
+                    if (this.authConfiguration.auto_userinfo) {
+                        this.getUserinfo(isRenewProcess, result, id_token, decoded_id_token).subscribe((response) => {
+                            if (response) {
+                                this.router.navigate([this.authConfiguration.startup_route]);
+                            } else {
+                                //this.router.navigate([this.authConfiguration.unauthorized_route]);
+                            }
+                        });
+                    } else {
+                        this.router.navigate([this.authConfiguration.startup_route]);
+                    }
+                } else { // some went wrong
+                    this.oidcSecurityCommon.logDebug('authorizedCallback, token(s) validation failed, resetting');
+                    this.resetAuthorizationData(false);
+                    this.router.navigate([this.authConfiguration.unauthorized_route]);
+                }
+            });
     }
 
     authorizedCallbackForPopup() {
