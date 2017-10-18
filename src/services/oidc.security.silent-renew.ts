@@ -30,22 +30,26 @@ export class OidcSecuritySilentRenew {
     }
 
     startRenew(url: string) {
-        let existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
-        let exists = window.document.getElementById('myiFrameForSilentRenew');
-        if (existsparent) {
-            this.sessionIframe = existsparent;
-        } else if (exists) {
-            this.sessionIframe = exists;
-        }
-
-        this.oidcSecurityCommon.logDebug('startRenew for URL:' + url);
-        this.sessionIframe.src = url;
-
-        return Observable.create((observer: Observer<any>) => {
-            this.sessionIframe.onload = () => {
-                observer.next(this);
-                observer.complete();
+        return new Promise(
+            (resolve, reject) => {
+                console.log(url);
+                let existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
+                let exists = window.document.getElementById('myiFrameForSilentRenew');
+                if (existsparent) {
+                    this.sessionIframe = existsparent;
+                } else if (exists) {
+                    this.sessionIframe = exists;
+                }
+        
+                this.oidcSecurityCommon.logDebug('startRenew for URL:' + url);
+                this.sessionIframe.src = url;
+        
+                this.sessionIframe.onload = () => {
+                    console.log("refresh done");
+                    console.log(this.sessionIframe);
+                    resolve();
+                }
             }
-        });
+        )
     }
 }

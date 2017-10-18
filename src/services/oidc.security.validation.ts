@@ -183,6 +183,7 @@ export class OidcSecurityValidation {
                 return encoded;
             }
             if(encoded != undefined) {
+                console.log(this.urlBase64Decode(encoded));
                 data = JSON.parse(this.urlBase64Decode(encoded));
             }
             
@@ -198,7 +199,10 @@ export class OidcSecurityValidation {
             if (encode) {
                 return encoded;
             }
-            data = JSON.parse(this.urlBase64Decode(encoded));
+            if(encoded != undefined) {
+                console.log(this.urlBase64Decode(encoded));
+                data = JSON.parse(this.urlBase64Decode(encoded));
+            }
         }
 
         return data;
@@ -211,7 +215,10 @@ export class OidcSecurityValidation {
             if (encode) {
                 return encoded;
             }
-            data = JSON.parse(this.urlBase64Decode(encoded));
+            if(encoded != undefined) {
+                console.log(this.urlBase64Decode(encoded));
+                data = JSON.parse(this.urlBase64Decode(encoded));
+            }
         }
 
         return data;
