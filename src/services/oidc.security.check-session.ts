@@ -54,10 +54,10 @@ export class OidcSecurityCheckSession {
     }
 
     pollServerSession(clientId: any) {
-            let source = Observable.timer(30000, 30000)
+            let source = Observable.timer(3000, 3000)
             .timeInterval()
             .pluck('interval')
-            .take(30000);
+            .take(10000);
             try {
             let subscription = source.subscribe(() => {
                 this.oidcSecurityCommon.logDebug(this.sessionIframe);

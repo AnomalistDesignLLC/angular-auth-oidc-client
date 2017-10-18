@@ -1155,7 +1155,6 @@ export class OidcSecurityService {
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
-
     public runTokenValidatation() {
         return new Promise(
             (resolve, reject) => {
@@ -1163,7 +1162,7 @@ export class OidcSecurityService {
                 let source = Observable.timer(30000, 30000)
                     .timeInterval()
                     .pluck('interval')
-                    .take(30000);
+                    .take(10000);
 
                 let subscription = source.subscribe(() => {
                     if (this._isAuthorizedValue) {
