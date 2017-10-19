@@ -1170,46 +1170,46 @@ export class OidcSecurityService {
         return new Promise(
              (resolve, reject) => {
                  console.log("validating token");
-        //         let source = Observable.timer(30000, 30000)
-        //             .timeInterval()
-        //             .pluck('interval')
-        //             .take(10000);
+                let source = Observable.timer(30000, 30000)
+                    .timeInterval()
+                    .pluck('interval')
+                    .take(10000);
 
-        //         let subscription = source.subscribe(() => {
-        //             if (this._isAuthorizedValue) {
-        //                 let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
-        //                 if(token != "" && token != undefined && token != null) {
-        //                     if (this.oidcSecurityValidation.isTokenExpired(this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token))) {
-        //                         this.oidcSecurityCommon.logDebug('IsAuthorized: id_token isTokenExpired, start silent renew if active');
-        //                         if (this.authConfiguration.silent_renew) {
-        //                             this.refreshSession().then(
-        //                                 res => {
-        //                                     //resolve();
-        //                                 }
-        //                             );
-        //                         } else {
-        //                             //this.resetAuthorizationData(false);
-        //                             //reject();
-        //                         }
-        //                     } else {
-        //                         //this.resetAuthorizationData(false);
-        //                         //reject();
-        //                     }
-        //                 } else {
-        //                     //this.resetAuthorizationData(false);
-        //                     //reject();
-        //                 }
-        //             } else {
-        //                 this.resetAuthorizationData(false);
-        //                 //reject();
-        //             }
-        //         },
-        //         (err: any) => {
-        //             this.oidcSecurityCommon.logError('Error: ' + err);
-        //         },
-        //         () => {
-        //             this.oidcSecurityCommon.logDebug('Completed');
-        //         });
+                let subscription = source.subscribe(() => {
+                    if (this._isAuthorizedValue) {
+                        let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
+                        if(token != "" && token != undefined && token != null) {
+                            if (this.oidcSecurityValidation.isTokenExpired(this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token))) {
+                                this.oidcSecurityCommon.logDebug('IsAuthorized: id_token isTokenExpired, start silent renew if active');
+                                if (this.authConfiguration.silent_renew) {
+                                    this.refreshSession().then(
+                                        res => {
+                                            //resolve();
+                                        }
+                                    );
+                                } else {
+                                    //this.resetAuthorizationData(false);
+                                    //reject();
+                                }
+                            } else {
+                                //this.resetAuthorizationData(false);
+                                //reject();
+                            }
+                        } else {
+                            //this.resetAuthorizationData(false);
+                            //reject();
+                        }
+                    } else {
+                        this.resetAuthorizationData(false);
+                        //reject();
+                    }
+                },
+                (err: any) => {
+                    this.oidcSecurityCommon.logError('Error: ' + err);
+                },
+                () => {
+                    this.oidcSecurityCommon.logDebug('Completed');
+                });
 
                 if (this._isAuthorizedValue) {
                     let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
