@@ -48,12 +48,13 @@ export class OidcSecurityUserService {
             headers: headers,
             body: ''
         }).map((res: any) => {
+            console.log("get user info");
             console.log(res);
             if (/^[\],:{}\s]*$/.test(res._body.replace(/\\["\\\/bfnrtu]/g, '@').
             replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
             replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-            
-                res.json();
+                console.log(res.json());
+                this.userData = res.json();
             
             } else{
             

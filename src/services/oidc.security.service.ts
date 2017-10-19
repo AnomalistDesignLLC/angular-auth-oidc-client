@@ -931,11 +931,11 @@ export class OidcSecurityService {
                 } else {
                     this.oidcSecurityUserService.initUserData()
                         .subscribe(() => {
-                            console.log("userData_sub",this.oidcSecurityUserService.userData.sub);
-                            console.log("decoded_id_token_sub",decoded_id_token.sub);
+                            console.log(this.oidcSecurityUserService.userData.sub);
+                            console.log(decoded_id_token.sub);
                             this.oidcSecurityCommon.logDebug('authorizedCallback id_token token flow');
                             if (this.oidcSecurityValidation.validate_userdata_sub_id_token(decoded_id_token.sub, this.oidcSecurityUserService.userData.sub)) {
-                                console.log("userData",this.oidcSecurityUserService.userData);
+                                console.log(this.oidcSecurityUserService.userData);
                                 this.setUserData(this.oidcSecurityUserService.userData);
                                 this.oidcSecurityCommon.logDebug(this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_access_token));
                                 this.oidcSecurityCommon.logDebug(this.oidcSecurityUserService.userData);
@@ -974,6 +974,7 @@ export class OidcSecurityService {
     }
 
     logoff() {
+        console.log("start logging off");
         return new Promise(
             (resolve, reject) => {
                 // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
@@ -1188,20 +1189,19 @@ export class OidcSecurityService {
                                         }
                                     );
                                 } else {
-                                    this.resetAuthorizationData(false);
-                                    this.logoff();
+                                    //this.resetAuthorizationData(false);
                                     //reject();
                                 }
                             } else {
-                                this.resetAuthorizationData(false);
-                                this.logoff();
+                                //this.resetAuthorizationData(false);
                                 //reject();
                             }
                         } else {
-                            this.resetAuthorizationData(false);
-                            this.logoff();
+                            //this.resetAuthorizationData(false);
                             //reject();
                         }
+                    } else {
+                        this.resetAuthorizationData(false);
                     }
                 },
                 (err: any) => {
@@ -1223,24 +1223,35 @@ export class OidcSecurityService {
                                     }
                                 );
                             } else {
-                                this.resetAuthorizationData(false);
-                                this.logoff();
-                                reject();
+                                this.logoff().then(
+                                    res => {
+                                        this.resetAuthorizationData(false);
+                                        reject();
+                                    }
+                                );
                             }
                         } else {
-                            this.resetAuthorizationData(false);
-                            this.logoff();
-                            reject();
+                            this.refreshSession().then(
+                                res => {
+                                    resolve();
+                                }
+                            );
                         }
                     } else {
-                        this.resetAuthorizationData(false);
-                        this.logoff();
-                        reject();
+                        this.logoff().then(
+                            res => {
+                                this.resetAuthorizationData(false);
+                                reject();
+                            }
+                        );
                     }
                 } else {
-                    this.resetAuthorizationData(false);
-                    this.logoff();
-                    reject();
+                    this.logoff().then(
+                        res => {
+                            this.resetAuthorizationData(false);
+                            reject();
+                        }
+                    );
                 }
 
             }
