@@ -26,7 +26,11 @@ export class OidcSecurityUserService {
 
     initUserData() {
         return this.getIdentityUserData()
-            .map(data => this.userData = data);
+            .map(data => {
+                if(data != undefined && data != null) {
+                    this.userData = data;
+                }
+            });
     }
 
     private getIdentityUserData = (): Observable<any> => {
@@ -43,7 +47,20 @@ export class OidcSecurityUserService {
         return this.http.get(this.authWellKnownEndpoints.userinfo_endpoint, {
             headers: headers,
             body: ''
-        }).map((res: any) => res.json());
+        }).map((res: any) => {
+            console.log(res);
+            if (/^[\],:{}\s]*$/.test(res._body.replace(/\\["\\\/bfnrtu]/g, '@').
+            replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+            replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+            
+                res.json();
+            
+            } else{
+            
+              //the json is not ok
+            
+            }
+        });
     }
 
     private handleError(error: any) {

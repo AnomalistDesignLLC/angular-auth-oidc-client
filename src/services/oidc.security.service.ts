@@ -931,8 +931,11 @@ export class OidcSecurityService {
                 } else {
                     this.oidcSecurityUserService.initUserData()
                         .subscribe(() => {
+                            console.log("userData_sub",this.oidcSecurityUserService.userData.sub);
+                            console.log("decoded_id_token_sub",decoded_id_token.sub);
                             this.oidcSecurityCommon.logDebug('authorizedCallback id_token token flow');
                             if (this.oidcSecurityValidation.validate_userdata_sub_id_token(decoded_id_token.sub, this.oidcSecurityUserService.userData.sub)) {
+                                console.log("userData",this.oidcSecurityUserService.userData);
                                 this.setUserData(this.oidcSecurityUserService.userData);
                                 this.oidcSecurityCommon.logDebug(this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_access_token));
                                 this.oidcSecurityCommon.logDebug(this.oidcSecurityUserService.userData);
@@ -971,33 +974,41 @@ export class OidcSecurityService {
     }
 
     logoff() {
-        // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
-        this.oidcSecurityCommon.logDebug('BEGIN Authorize, no auth data');
-
-        if (this.authWellKnownEndpoints.end_session_endpoint) {
-            let authorizationEndsessionUrl = this.authWellKnownEndpoints.end_session_endpoint;
-
-            let id_token_hint = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
-            let post_logout_redirect_uri = this.authConfiguration.post_logout_redirect_uri;
-
-            let url =
-                authorizationEndsessionUrl + '?' +
-                'id_token_hint=' + encodeURI(id_token_hint) + '&' +
-                'post_logout_redirect_uri=' + encodeURI(post_logout_redirect_uri);
-
-            this.resetAuthorizationData(false);
-
-            if (this.authConfiguration.start_checksession && this.checkSessionChanged) {
-                this.oidcSecurityCommon.logDebug('only local login cleaned up, server session has changed');
-            } else {
-                //this._popupFor = "logout";
-                //this.popup(url, 'QPONS\' LOGOUT PAGE', 800, 800);
-                return url;
+        return new Promise(
+            (resolve, reject) => {
+                // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
+                this.oidcSecurityCommon.logDebug('BEGIN Authorize, no auth data');
+        
+                if (this.authWellKnownEndpoints.end_session_endpoint) {
+                    let authorizationEndsessionUrl = this.authWellKnownEndpoints.end_session_endpoint;
+        
+                    let id_token_hint = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
+                    let post_logout_redirect_uri = this.authConfiguration.post_logout_redirect_uri;
+        
+                    let url =
+                        authorizationEndsessionUrl + '?' +
+                        'id_token_hint=' + encodeURI(id_token_hint) + '&' +
+                        'post_logout_redirect_uri=' + encodeURI(post_logout_redirect_uri);
+        
+                    this.resetAuthorizationData(false);
+        
+                    if (this.authConfiguration.start_checksession && this.checkSessionChanged) {
+                        this.oidcSecurityCommon.logDebug('only local login cleaned up, server session has changed');
+                        resolve();
+                    } else {
+                        this.oidcSecuritySilentRenew.silentLogout(url).then(
+                            res => {
+                                resolve();
+                            }
+                        )
+                    }
+                } else {
+                    this.resetAuthorizationData(false);
+                    this.oidcSecurityCommon.logDebug('only local login cleaned up, no end_session_endpoint');
+                    resolve();
+                }
             }
-        } else {
-            this.resetAuthorizationData(false);
-            this.oidcSecurityCommon.logDebug('only local login cleaned up, no end_session_endpoint');
-        }
+        )
     }
 
     public successful_validation() {
@@ -1173,19 +1184,23 @@ export class OidcSecurityService {
                                 if (this.authConfiguration.silent_renew) {
                                     this.refreshSession().then(
                                         res => {
-                                            resolve();
+                                            //resolve();
                                         }
                                     );
                                 } else {
                                     this.resetAuthorizationData(false);
-                                    reject();
+                                    this.logoff();
+                                    //reject();
                                 }
                             } else {
-                                reject();
+                                this.resetAuthorizationData(false);
+                                this.logoff();
+                                //reject();
                             }
                         } else {
                             this.resetAuthorizationData(false);
-                            reject();
+                            this.logoff();
+                            //reject();
                         }
                     }
                 },
@@ -1195,6 +1210,39 @@ export class OidcSecurityService {
                 () => {
                     this.oidcSecurityCommon.logDebug('Completed');
                 });
+
+                if (this._isAuthorizedValue) {
+                    let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
+                    if(token != "" && token != undefined && token != null) {
+                        if (this.oidcSecurityValidation.isTokenExpired(this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token))) {
+                            this.oidcSecurityCommon.logDebug('IsAuthorized: id_token isTokenExpired, start silent renew if active');
+                            if (this.authConfiguration.silent_renew) {
+                                this.refreshSession().then(
+                                    res => {
+                                        resolve();
+                                    }
+                                );
+                            } else {
+                                this.resetAuthorizationData(false);
+                                this.logoff();
+                                reject();
+                            }
+                        } else {
+                            this.resetAuthorizationData(false);
+                            this.logoff();
+                            reject();
+                        }
+                    } else {
+                        this.resetAuthorizationData(false);
+                        this.logoff();
+                        reject();
+                    }
+                } else {
+                    this.resetAuthorizationData(false);
+                    this.logoff();
+                    reject();
+                }
+
             }
         )
     }
