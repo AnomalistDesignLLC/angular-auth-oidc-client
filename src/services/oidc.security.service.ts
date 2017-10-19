@@ -372,6 +372,7 @@ export class OidcSecurityService {
     }
 
     _checkForPopupClosed() {
+        console.log("check popup closed");
       try {
         console.log(this._popup.location.href);
         if(this._popup.location.href != 'about:blank' && this._popup.location.href != undefined) {
@@ -1167,47 +1168,48 @@ export class OidcSecurityService {
     }
     public runTokenValidatation() {
         return new Promise(
-            (resolve, reject) => {
-                console.log("validating token");
-                let source = Observable.timer(30000, 30000)
-                    .timeInterval()
-                    .pluck('interval')
-                    .take(10000);
+             (resolve, reject) => {
+                 console.log("validating token");
+        //         let source = Observable.timer(30000, 30000)
+        //             .timeInterval()
+        //             .pluck('interval')
+        //             .take(10000);
 
-                let subscription = source.subscribe(() => {
-                    if (this._isAuthorizedValue) {
-                        let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
-                        if(token != "" && token != undefined && token != null) {
-                            if (this.oidcSecurityValidation.isTokenExpired(this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token))) {
-                                this.oidcSecurityCommon.logDebug('IsAuthorized: id_token isTokenExpired, start silent renew if active');
-                                if (this.authConfiguration.silent_renew) {
-                                    this.refreshSession().then(
-                                        res => {
-                                            //resolve();
-                                        }
-                                    );
-                                } else {
-                                    //this.resetAuthorizationData(false);
-                                    //reject();
-                                }
-                            } else {
-                                //this.resetAuthorizationData(false);
-                                //reject();
-                            }
-                        } else {
-                            //this.resetAuthorizationData(false);
-                            //reject();
-                        }
-                    } else {
-                        this.resetAuthorizationData(false);
-                    }
-                },
-                (err: any) => {
-                    this.oidcSecurityCommon.logError('Error: ' + err);
-                },
-                () => {
-                    this.oidcSecurityCommon.logDebug('Completed');
-                });
+        //         let subscription = source.subscribe(() => {
+        //             if (this._isAuthorizedValue) {
+        //                 let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
+        //                 if(token != "" && token != undefined && token != null) {
+        //                     if (this.oidcSecurityValidation.isTokenExpired(this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token))) {
+        //                         this.oidcSecurityCommon.logDebug('IsAuthorized: id_token isTokenExpired, start silent renew if active');
+        //                         if (this.authConfiguration.silent_renew) {
+        //                             this.refreshSession().then(
+        //                                 res => {
+        //                                     //resolve();
+        //                                 }
+        //                             );
+        //                         } else {
+        //                             //this.resetAuthorizationData(false);
+        //                             //reject();
+        //                         }
+        //                     } else {
+        //                         //this.resetAuthorizationData(false);
+        //                         //reject();
+        //                     }
+        //                 } else {
+        //                     //this.resetAuthorizationData(false);
+        //                     //reject();
+        //                 }
+        //             } else {
+        //                 this.resetAuthorizationData(false);
+        //                 //reject();
+        //             }
+        //         },
+        //         (err: any) => {
+        //             this.oidcSecurityCommon.logError('Error: ' + err);
+        //         },
+        //         () => {
+        //             this.oidcSecurityCommon.logDebug('Completed');
+        //         });
 
                 if (this._isAuthorizedValue) {
                     let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
@@ -1221,12 +1223,13 @@ export class OidcSecurityService {
                                     }
                                 );
                             } else {
-                                this.logoff().then(
-                                    res => {
-                                        this.resetAuthorizationData(false);
-                                        reject();
-                                    }
-                                );
+                                this.resetAuthorizationData(false);
+                                resolve();
+                                // this.logoff().then(
+                                //     res => {
+                                //         resolve();
+                                //     }
+                                // );
                             }
                         } else {
                             this.refreshSession().then(
@@ -1236,23 +1239,25 @@ export class OidcSecurityService {
                             );
                         }
                     } else {
-                        this.logoff().then(
-                            res => {
-                                this.resetAuthorizationData(false);
-                                reject();
-                            }
-                        );
+                        this.resetAuthorizationData(false);
+                        resolve();
+                        // this.logoff().then(
+                        //     res => {
+                        //         resolve();
+                        //     }
+                        // );
                     }
                 } else {
-                    this.logoff().then(
-                        res => {
-                            this.resetAuthorizationData(false);
-                            reject();
-                        }
-                    );
+                    this.resetAuthorizationData(false);
+                    resolve();
+                    // this.logoff().then(
+                    //     res => {
+                    //         resolve();
+                    //     }
+                    // );
                 }
 
-            }
+             }
         )
     }
 }
