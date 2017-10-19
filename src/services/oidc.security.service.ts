@@ -328,14 +328,22 @@ export class OidcSecurityService {
             let a = url.split('/');
             a = a[(a.length - 1)];
             if(url.indexOf("#") != "-1") {
-                this._popup.close();
-                this.authorizedCallbackForWebview(url);
+                let hash = url.split('#')[1];        
+                let result: any = hash.split('&').reduce(function (result: any, item: string) {
+                    let parts = item.split('=');
+                    result[parts[0]] = parts[1];
+                    return result;
+                }, {});
+                if(result.id_token != undefined) {
+                    this._popup.close();
+                    this.authorizedCallbackForWebview(result);
+                }
             }
             if(a == "login") {
                 this.authorizeWithWebview();
             }
         });
-      }
+    }
     
     silentRenewForWebview(url: string) {
         this.CheckForPopupClosedInterval = 2000;
@@ -408,22 +416,12 @@ export class OidcSecurityService {
       }
     }
 
-    authorizedCallbackForWebview(url:string) {
+    authorizedCallbackForWebview(result: any) {
         let silentRenew = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_silent_renew_running);
         let isRenewProcess = (silentRenew === 'running');
 
         this.oidcSecurityCommon.logDebug('BEGIN authorizedCallback, no auth data');
         this.resetAuthorizationData(isRenewProcess);
-
-        let hash = url.split('#')[1];
-
-        console.log(hash);
-
-        let result: any = hash.split('&').reduce(function (result: any, item: string) {
-            let parts = item.split('=');
-            result[parts[0]] = parts[1];
-            return result;
-        }, {});
 
         console.log(result);
 
