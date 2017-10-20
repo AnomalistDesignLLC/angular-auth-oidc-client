@@ -1192,6 +1192,11 @@ export class OidcSecurityService {
                                     //reject();
                                 }
                             } else {
+                                this.refreshSession().then(
+                                    res => {
+                                        //resolve();
+                                    }
+                                );
                                 //this.resetAuthorizationData(false);
                                 //reject();
                             }
