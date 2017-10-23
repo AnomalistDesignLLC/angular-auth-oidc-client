@@ -39,6 +39,9 @@ export class OidcSecurityService {
     private _checkForPopupClosedTimer: any;
     private _popup: any;
     private _popupFor: string;
+    
+    private _isLoading = new BehaviorSubject<boolean>(false);
+    private _isLoadingValue: boolean;
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
@@ -108,6 +111,15 @@ export class OidcSecurityService {
     private setIsAuthorized(isAuthorized: boolean) {
         this._isAuthorizedValue = isAuthorized;
         this._isAuthorized.next(isAuthorized);
+    }
+
+    getIsLoading(): Observable<boolean> {
+        return this._isLoading.asObservable();
+    }
+
+    private setIsLoading(isAuthorized: boolean) {
+        this._isLoadingValue = isAuthorized;
+        this._isLoading.next(isAuthorized);
     }
 
     getToken(): any {
@@ -418,6 +430,7 @@ export class OidcSecurityService {
     }
 
     authorizedCallbackForWebview(result: any) {
+        this.setIsLoading(true);
         let silentRenew = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_silent_renew_running);
         let isRenewProcess = (silentRenew === 'running');
 
@@ -1244,8 +1257,11 @@ export class OidcSecurityService {
                             );
                         }
                     } else {
-                        this.resetAuthorizationData(false);
-                        resolve();
+                        this.refreshSession().then(
+                            res => {
+                                resolve();
+                            }
+                        );
                         // this.logoff().then(
                         //     res => {
                         //         resolve();
