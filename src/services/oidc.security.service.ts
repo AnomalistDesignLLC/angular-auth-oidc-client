@@ -14,6 +14,7 @@ import { OidcSecuritySilentRenew } from './oidc.security.silent-renew';
 import { OidcSecurityUserService } from './oidc.security.user-service';
 import { OidcSecurityCommon } from './oidc.security.common';
 import { AuthWellKnownEndpoints } from './auth.well-known-endpoints';
+import { ISubscription } from "rxjs/Subscription";
 
 import { JwtKeys } from './jwtkeys';
 
@@ -526,17 +527,21 @@ export class OidcSecurityService {
                     if (this.authConfiguration.auto_userinfo) {
                         this.getUserinfo(isRenewProcess, result, id_token, decoded_id_token).subscribe((response) => {
                             if (response) {
+                                this.setIsLoading(false);
                                 this.router.navigate([this.authConfiguration.startup_route]);
                             } else {
+                                this.setIsLoading(false);
                                 //this.router.navigate([this.authConfiguration.unauthorized_route]);
                             }
                         });
                     } else {
+                        this.setIsLoading(false);
                         this.router.navigate([this.authConfiguration.startup_route]);
                     }
                 } else { // some went wrong
                     this.oidcSecurityCommon.logDebug('authorizedCallback, token(s) validation failed, resetting');
                     this.resetAuthorizationData(false);
+                    this.setIsLoading(false);
                     this.router.navigate([this.authConfiguration.unauthorized_route]);
                 }
             });
@@ -544,6 +549,7 @@ export class OidcSecurityService {
 
     authorizedCallbackForPopup() {
         console.log("login finish");
+        this.setIsLoading(true);
         let silentRenew = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_silent_renew_running);
         let isRenewProcess = (silentRenew === 'running');
 
@@ -651,17 +657,21 @@ export class OidcSecurityService {
                     if (this.authConfiguration.auto_userinfo) {
                         this.getUserinfo(isRenewProcess, result, id_token, decoded_id_token).subscribe((response) => {
                             if (response) {
+                                this.setIsLoading(false);
                                 this.router.navigate([this.authConfiguration.startup_route]);
                             } else {
+                                this.setIsLoading(false);
                                 //this.router.navigate([this.authConfiguration.unauthorized_route]);
                             }
                         });
                     } else {
+                        this.setIsLoading(false);
                         this.router.navigate([this.authConfiguration.startup_route]);
                     }
                 } else { // some went wrong
                     this.oidcSecurityCommon.logDebug('authorizedCallback, token(s) validation failed, resetting');
                     this.resetAuthorizationData(false);
+                    this.setIsLoading(false);
                     this.router.navigate([this.authConfiguration.unauthorized_route]);
                 }
             });
@@ -1179,16 +1189,43 @@ export class OidcSecurityService {
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
-    public runTokenValidatation() {
+    source_mobile = Observable.timer(30000, 30000)
+    .timeInterval()
+    .pluck('interval')
+    .take(10000);
+    source_browser = Observable.timer(3000, 3000)
+    .timeInterval()
+    .pluck('interval')
+    .take(10000);
+    subscription: ISubscription;
+    public runTokenValidatationForBrowser() {
         return new Promise(
              (resolve, reject) => {
-                 console.log("validating token");
-                let source = Observable.timer(30000, 30000)
-                    .timeInterval()
-                    .pluck('interval')
-                    .take(10000);
+                console.log("validating token");
+                this.subscription  = this.source_browser.subscribe(() => {
+                    console.log("sfaf");
+                    if (!this._isAuthorizedValue) {
+                        this.resetAuthorizationData(false);
+                    }
+                },
+                (err: any) => {
+                    this.oidcSecurityCommon.logError('Error: ' + err);
+                },
+                () => {
+                    this.oidcSecurityCommon.logDebug('Completed');
+                });
 
-                let subscription = source.subscribe(() => {
+                resolve();
+
+             }
+        )
+    }
+    public runTokenValidatationForMobile() {
+        return new Promise(
+             (resolve, reject) => {
+                console.log("validating token");
+                this.subscription.unsubscribe();
+                this.subscription  = this.source_mobile.subscribe(() => {
                     if (this._isAuthorizedValue) {
                         let token = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_id_token);
                         if(token != "" && token != undefined && token != null) {
@@ -1277,7 +1314,6 @@ export class OidcSecurityService {
                     //     }
                     // );
                 }
-
              }
         )
     }
