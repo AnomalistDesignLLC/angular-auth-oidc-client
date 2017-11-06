@@ -184,7 +184,7 @@ export class OidcSecurityService {
 
     }
 
-    authorize() {
+    authorize(authenticationScheme: string = "local") {
         let data = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_well_known_endpoints);
         if (data && data !== '') {
             this.authWellKnownEndpointsLoaded = true;
@@ -212,6 +212,7 @@ export class OidcSecurityService {
         this.oidcSecurityCommon.logDebug('AuthorizedController created. local state: ' + this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_auth_state_control));
 
         let url = this.createAuthorizeUrl(nonce, state, this.authWellKnownEndpoints.authorization_endpoint);
+        url = url + "&authenticationScheme="+authenticationScheme;
         //this.popup(url, 'QPONS\' AUTHORIZATION PAGE', 500, 500);
         window.location.href = url;
     }
