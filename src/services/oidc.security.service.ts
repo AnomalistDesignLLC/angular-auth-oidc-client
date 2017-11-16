@@ -1000,6 +1000,7 @@ export class OidcSecurityService {
         console.log("start logging off");
         return new Promise(
             (resolve, reject) => {
+                this.setIsLoading(true);
                 // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
                 this.oidcSecurityCommon.logDebug('BEGIN Authorize, no auth data');
         
@@ -1018,10 +1019,12 @@ export class OidcSecurityService {
         
                     if (this.authConfiguration.start_checksession && this.checkSessionChanged) {
                         this.oidcSecurityCommon.logDebug('only local login cleaned up, server session has changed');
+                        this.setIsLoading(false);
                         resolve();
                     } else {
                         this.oidcSecuritySilentRenew.silentLogout(url).then(
                             res => {
+                                this.setIsLoading(false);
                                 resolve();
                             }
                         )
@@ -1029,6 +1032,7 @@ export class OidcSecurityService {
                 } else {
                     this.resetAuthorizationData(false);
                     this.oidcSecurityCommon.logDebug('only local login cleaned up, no end_session_endpoint');
+                    this.setIsLoading(false);
                     resolve();
                 }
             }
