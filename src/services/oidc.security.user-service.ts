@@ -14,57 +14,54 @@ import { AuthWellKnownEndpoints } from './auth.well-known-endpoints';
 @Injectable()
 export class OidcSecurityUserService {
 
-    userData: any = '';
+  userData: any = '';
 
-    constructor(
-        private http: Http,
-        private authConfiguration: AuthConfiguration,
-        private oidcSecurityCommon: OidcSecurityCommon,
-        private authWellKnownEndpoints: AuthWellKnownEndpoints
-    ) {
-    }
+  constructor(
+    private http: Http,
+    private authConfiguration: AuthConfiguration,
+    private oidcSecurityCommon: OidcSecurityCommon,
+    private authWellKnownEndpoints: AuthWellKnownEndpoints
+  ) {
+  }
 
-    initUserData() {
-        return this.getIdentityUserData()
-            .map(data => {
-                if(data != undefined && data != null) {
-                    this.userData = data;
-                }
-            });
-    }
-
-    private getIdentityUserData = (): Observable<any> => {
-
-        let headers = new Headers();
-        headers.append('Accept', 'application/json');
-
-        let token = this.oidcSecurityCommon.getAccessToken();
-
-        if (token !== '') {
-            headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+  initUserData() {
+    return this.getIdentityUserData()
+      .map(data => {
+        if (data !== undefined && data !== null) {
+          this.userData = data;
         }
+      });
+  }
 
-        return this.http.get(this.authWellKnownEndpoints.userinfo_endpoint, {
-            headers: headers,
-            body: ''
-        }).map((res: any) => {
-            console.log("get user info");
-            console.log(res);
-            if (/^[\],:{}\s]*$/.test(res._body.replace(/\\["\\\/bfnrtu]/g, '@').
-            replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
-            replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-                console.log(res.json());
-                this.userData = res.json();
-            
-            } else{
-            
-              //the json is not ok
-            
-            }
-        });
+  private getIdentityUserData = (): Observable<any> => {
+
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+
+    const token = this.oidcSecurityCommon.getAccessToken();
+
+    if (token !== '') {
+      headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
     }
 
-    private handleError(error: any) {
-        this.oidcSecurityCommon.logError(error);
-    }
+    return this.http.get(this.authWellKnownEndpoints.userinfo_endpoint, {
+      headers: headers,
+      body: ''
+    }).map((res: any) => {
+      if (/^[\],:{}\s]*$/.test(res._body.replace(/\\["\\\/bfnrtu]/g, '@').
+      replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+      replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+        this.userData = res.json();
+      
+      } else {
+      
+        // the json is not ok
+      
+      }
+    });
+  }
+
+  private handleError(error: any) {
+    this.oidcSecurityCommon.logError(error);
+  }
 }

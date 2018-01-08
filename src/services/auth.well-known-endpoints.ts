@@ -32,7 +32,7 @@ export class AuthWellKnownEndpoints {
     }
 
     setupModule() {
-        let data = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_well_known_endpoints);
+        const data = this.oidcSecurityCommon.retrieve(this.oidcSecurityCommon.storage_well_known_endpoints);
         this.oidcSecurityCommon.logDebug(data);
         if (data && data !== '') {
             this.oidcSecurityCommon.logDebug('AuthWellKnownEndpoints already defined');
@@ -63,31 +63,31 @@ export class AuthWellKnownEndpoints {
         } else {
             this.oidcSecurityCommon.logDebug('AuthWellKnownEndpoints first time, get from the server');
             this.getWellKnownEndpoints()
-                .subscribe((data: any) => {
-                    this.issuer = data.issuer;
-                    this.jwks_uri = data.jwks_uri;
-                    this.authorization_endpoint = data.authorization_endpoint;
-                    this.token_endpoint = data.token_endpoint;
-                    this.userinfo_endpoint = data.userinfo_endpoint;
+                .subscribe((_data: any) => {
+                    this.issuer = _data.issuer;
+                    this.jwks_uri = _data.jwks_uri;
+                    this.authorization_endpoint = _data.authorization_endpoint;
+                    this.token_endpoint = _data.token_endpoint;
+                    this.userinfo_endpoint = _data.userinfo_endpoint;
 
-                    if (data.end_session_endpoint) {
-                        this.end_session_endpoint = data.end_session_endpoint;
+                    if (_data.end_session_endpoint) {
+                        this.end_session_endpoint = _data.end_session_endpoint;
                     };
 
-                    if (data.check_session_iframe) {
+                    if (_data.check_session_iframe) {
                         this.check_session_iframe = data.check_session_iframe;
                     };
 
-                    if (data.revocation_endpoint) {
-                        this.revocation_endpoint = data.revocation_endpoint;
+                    if (_data.revocation_endpoint) {
+                        this.revocation_endpoint = _data.revocation_endpoint;
                     };
 
-                    if (data.introspection_endpoint) {
-                        this.introspection_endpoint = data.introspection_endpoint;
+                    if (_data.introspection_endpoint) {
+                        this.introspection_endpoint = _data.introspection_endpoint;
                     }
 
-                    this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_well_known_endpoints, data);
-                    this.oidcSecurityCommon.logDebug(data);
+                    this.oidcSecurityCommon.store(this.oidcSecurityCommon.storage_well_known_endpoints, _data);
+                    this.oidcSecurityCommon.logDebug(_data);
 
                     this.onWellKnownEndpointsLoaded.emit();
                 });
@@ -96,7 +96,7 @@ export class AuthWellKnownEndpoints {
 
     private getWellKnownEndpoints = (): Observable<any> => {
 
-        let headers = new Headers();
+        const headers = new Headers();
         headers.append('Accept', 'application/json');
 
         let url = this.authConfiguration.stsServer + '/.well-known/openid-configuration';

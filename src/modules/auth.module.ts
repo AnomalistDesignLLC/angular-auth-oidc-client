@@ -1,14 +1,14 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { OidcSecurityService } from '../services/oidc.security.service';
+import { OidcSecurityService } from '../';
 import { AuthConfiguration, DefaultConfiguration } from './auth.configuration';
-import { OidcSecurityValidation } from '../services/oidc.security.validation';
-import { OidcSecurityCheckSession } from '../services/oidc.security.check-session';
-import { OidcSecuritySilentRenew } from '../services/oidc.security.silent-renew';
-import { OidcSecurityUserService } from '../services/oidc.security.user-service';
-import { OidcSecurityCommon } from '../services/oidc.security.common';
-import { OidcSecurityStorage, BrowserStorage } from '../services/oidc.security.storage';
-import { AuthWellKnownEndpoints } from '../services/auth.well-known-endpoints';
+import { OidcSecurityValidation } from '../';
+import { OidcSecurityCheckSession } from '../';
+import { OidcSecuritySilentRenew } from '../';
+import { OidcSecurityUserService } from '../';
+import { OidcSecurityCommon } from '../';
+import { OidcSecurityStorage, BrowserStorage } from '../';
+import { AuthWellKnownEndpoints } from '../';
 
 @NgModule()
 export class AuthModule {

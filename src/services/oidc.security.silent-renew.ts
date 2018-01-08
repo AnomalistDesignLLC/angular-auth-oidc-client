@@ -5,76 +5,70 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class OidcSecuritySilentRenew {
-    private sessionIframe: any;
+  private sessionIframe: any;
 
-    constructor(private oidcSecurityCommon: OidcSecurityCommon) {
+  constructor(private oidcSecurityCommon: OidcSecurityCommon) {
+  }
+
+  initRenew() {
+    const existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
+    const exists = window.document.getElementById('myiFrameForSilentRenew');
+    if (existsparent) {
+      this.sessionIframe = existsparent;
+    } else if (exists) {
+      this.sessionIframe = exists;
     }
 
-    initRenew() {
-        let existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
-        let exists = window.document.getElementById('myiFrameForSilentRenew');
+    if (!exists && !existsparent) {
+      this.sessionIframe = window.document.createElement('iframe');
+      this.sessionIframe.id = 'myiFrameForSilentRenew';
+      this.oidcSecurityCommon.logDebug(this.sessionIframe);
+      this.sessionIframe.style.display = 'none';
+
+      window.document.body.appendChild(this.sessionIframe);
+    }
+  }
+
+  startRenew(url: string): Promise<void> {
+    return new Promise(
+      (resolve, reject) => {
+        const existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
+        const exists = window.document.getElementById('myiFrameForSilentRenew');
         if (existsparent) {
-            this.sessionIframe = existsparent;
+          this.sessionIframe = existsparent;
         } else if (exists) {
-            this.sessionIframe = exists;
+          this.sessionIframe = exists;
         }
-
-        if (!exists && !existsparent) {
-            this.sessionIframe = window.document.createElement('iframe');
-            this.sessionIframe.id = 'myiFrameForSilentRenew';
-            this.oidcSecurityCommon.logDebug(this.sessionIframe);
-            this.sessionIframe.style.display = 'none';
-
-            window.document.body.appendChild(this.sessionIframe);
+    
+        this.oidcSecurityCommon.logDebug('startRenew for URL:' + url);
+        this.sessionIframe.src = url;
+    
+        this.sessionIframe.onload = () => {
+          resolve();
         }
-    }
+      }
+    )
+  }
 
-    startRenew(url: string) {
-        return new Promise(
-            (resolve, reject) => {
-                console.log(url);
-                let existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
-                let exists = window.document.getElementById('myiFrameForSilentRenew');
-                if (existsparent) {
-                    this.sessionIframe = existsparent;
-                } else if (exists) {
-                    this.sessionIframe = exists;
-                }
-        
-                this.oidcSecurityCommon.logDebug('startRenew for URL:' + url);
-                this.sessionIframe.src = url;
-        
-                this.sessionIframe.onload = () => {
-                    console.log("refresh done");
-                    console.log(this.sessionIframe);
-                    resolve();
-                }
-            }
-        )
-    }
-
-    silentLogout(url: string) {
-        return new Promise(
-            (resolve, reject) => {
-                console.log(url);
-                let existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
-                let exists = window.document.getElementById('myiFrameForSilentRenew');
-                if (existsparent) {
-                    this.sessionIframe = existsparent;
-                } else if (exists) {
-                    this.sessionIframe = exists;
-                }
-        
-                this.oidcSecurityCommon.logDebug('startRenew for URL:' + url);
-                this.sessionIframe.src = url;
-        
-                this.sessionIframe.onload = () => {
-                    console.log("refresh done");
-                    console.log(this.sessionIframe);
-                    resolve();
-                }
-            }
-        )
-    }
+  silentLogout(url: string): Promise<void> {
+    return new Promise(
+      (resolve, reject) => {
+        const existsparent = window.parent.document.getElementById('myiFrameForSilentRenew');
+        const exists = window.document.getElementById('myiFrameForSilentRenew');
+        if (existsparent) {
+          this.sessionIframe = existsparent;
+        } else if (exists) {
+          this.sessionIframe = exists;
+        }
+    
+        this.oidcSecurityCommon.logDebug('startRenew for URL:' + url);
+        this.sessionIframe.src = url;
+    
+        this.sessionIframe.onload = () => {
+          resolve();
+        }
+      }
+    )
+  }
 
 }

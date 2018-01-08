@@ -1,4 +1,3 @@
-// Public classes.
 export { OidcSecurityService } from './services/oidc.security.service';
 export { OidcSecurityValidation } from './services/oidc.security.validation';
 export { OidcSecurityCheckSession } from './services/oidc.security.check-session';
