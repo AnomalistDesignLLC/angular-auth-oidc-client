@@ -38,7 +38,7 @@
         "@angular/router": ">= 4.1.0"
     },
     "dependencies": {
-        "jsrsasign": "7.2.1"
+        "jsrsasign": "git+https://github.com/AnomalistDesignLLC/jsrsasign.git"
     },
     "devDependencies": {
         "@angular/animations": "4.1.0",
