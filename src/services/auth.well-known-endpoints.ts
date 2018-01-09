@@ -75,7 +75,7 @@ export class AuthWellKnownEndpoints {
                     };
 
                     if (_data.check_session_iframe) {
-                        this.check_session_iframe = data.check_session_iframe;
+                        this.check_session_iframe = _data.check_session_iframe;
                     };
 
                     if (_data.revocation_endpoint) {
