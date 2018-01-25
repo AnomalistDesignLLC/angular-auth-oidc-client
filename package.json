@@ -23,27 +23,5 @@
   "main": "./bundles/angular-auth-oidc-client.umd.min.js",
   "module": "./esm5/angular-auth-oidc-client.es5.js",
   "es2015": "./esm2015/angular-auth-oidc-client.js",
-  "typings": "./angular-auth-oidc-client.d.ts",
-  "dependencies": {
-    "@angular/animations": "^5.0.0",
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/forms": "^5.0.0",
-    "@angular/http": "^5.0.0",
-    "@angular/language-service": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "@angular/platform-browser-dynamic": "^5.0.0",
-    "@angular/platform-server": "^5.0.0",
-    "@angular/platform-webworker": "^5.0.0",
-    "@angular/platform-webworker-dynamic": "^5.0.0",
-    "@angular/router": "^5.0.0",
-    "@angular/upgrade": "^5.0.0",
-    "@ngx-translate/core": "^9.0.2",
-    "@ngx-translate/http-loader": "^2.0.1",
-    "core-js": "^2.4.1",
-    "jsrsasign": "git+https://github.com/AnomalistDesignLLC/jsrsasign.git",
-    "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
-  }
+  "typings": "./angular-auth-oidc-client.d.ts"
 }
