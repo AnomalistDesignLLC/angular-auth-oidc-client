@@ -10750,7 +10750,6 @@ var OidcDataService = (function () {
     };
     OidcDataService.prototype.getIdentityUserData = function (url, token) {
         var headers = new http$1.HttpHeaders({ 'Accept': 'application/json', 'Authorization': 'Bearer ' + decodeURIComponent(token) });
-        console.log(headers);
         return this.httpClient.get(url, {
             headers: headers
         });

@@ -16,7 +16,6 @@ export class OidcDataService {
 
     getIdentityUserData<T>(url: string, token: string): Observable<T> {
         const headers = new HttpHeaders({'Accept': 'application/json', 'Authorization': 'Bearer ' + decodeURIComponent(token)});
-        console.log(headers);
 
         return this.httpClient.get<T>(url, {
             headers: headers

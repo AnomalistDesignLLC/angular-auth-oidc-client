@@ -577,7 +577,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/module/services/oidc-data.service.ts:26</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/module/services/oidc-data.service.ts:25</a></div>
                                         </td>
                                     </tr>
             
@@ -787,7 +787,6 @@ export class OidcDataService {
 
     getIdentityUserData&lt;T&gt;(url: string, token: string): Observable&lt;T&gt; {
         const headers &#x3D; new HttpHeaders({&#x27;Accept&#x27;: &#x27;application/json&#x27;, &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + decodeURIComponent(token)});
-        console.log(headers);
 
         return this.httpClient.get&lt;T&gt;(url, {
             headers: headers

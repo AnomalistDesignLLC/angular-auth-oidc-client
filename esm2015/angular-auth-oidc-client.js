@@ -10480,7 +10480,6 @@ class OidcDataService {
     }
     getIdentityUserData(url, token) {
         const headers = new HttpHeaders({ 'Accept': 'application/json', 'Authorization': 'Bearer ' + decodeURIComponent(token) });
-        console.log(headers);
         return this.httpClient.get(url, {
             headers: headers
         });
