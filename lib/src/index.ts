@@ -12,32 +12,52 @@
  * 
  * @import
  */
+import { ArrayHelperService } from './module/services/oidc-array-helper.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { OidcSecurityService } from './module/oidc.security.service';
-import { OidcSecurityValidation } from './module/oidc.security.validation';
-import { OidcSecurityCheckSession } from './module/oidc.security.check-session';
-import { OidcSecuritySilentRenew } from './module/oidc.security.silent-renew';
-import { OidcSecurityUserService } from './module/oidc.security.user-service';
-import { OidcSecurityCommon } from './module/oidc.security.common';
-import { OidcSecurityStorage, BrowserStorage } from './module/oidc.security.storage';
-import { AuthWellKnownEndpoints } from './module/auth.well-known-endpoints';
-import { AuthConfiguration, OpenIDImplicitFlowConfiguration, DefaultConfiguration } from './module/auth.configuration';
+
+import { OidcSecurityService } from './module/services/oidc.security.service';
+import { AuthConfiguration, DefaultConfiguration } from './module/modules/auth.configuration';
+import { OidcSecurityValidation } from './module/services/oidc.security.validation';
+import { OidcSecurityCheckSession } from './module/services/oidc.security.check-session';
+import { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-renew';
+import { OidcSecurityUserService } from './module/services/oidc.security.user-service';
+import { OidcSecurityCommon } from './module/services/oidc.security.common';
+import {
+    OidcSecurityStorage,
+    BrowserStorage
+} from './module/services/oidc.security.storage';
+import { StateValidationService } from './module/services/oidc-security-state-validation.service';
+import { OidcDataService } from './module/services/oidc-data.service';
+import { TokenHelperService } from './module/services/oidc-token-helper.service';
+import { LoggerService } from './module/services/oidc.logger.service';
+import { OidcConfigService } from './module/services/oidc.security.config.service';
+import { AuthWellKnownEndpoints } from './module/models/auth.well-known-endpoints';
 
 /**
  * Dependencies
  * 
  * @export
  */
+export { ArrayHelperService } from './module/services/oidc-array-helper.service';
 export { NgModule, ModuleWithProviders } from '@angular/core';
-export { OidcSecurityService } from './module/oidc.security.service';
-export { OidcSecurityValidation } from './module/oidc.security.validation';
-export { OidcSecurityCheckSession } from './module/oidc.security.check-session';
-export { OidcSecuritySilentRenew } from './module/oidc.security.silent-renew';
-export { OidcSecurityUserService } from './module/oidc.security.user-service';
-export { OidcSecurityCommon } from './module/oidc.security.common';
-export { OidcSecurityStorage, BrowserStorage } from './module/oidc.security.storage';
-export { AuthWellKnownEndpoints } from './module/auth.well-known-endpoints';
-export { AuthConfiguration, OpenIDImplicitFlowConfiguration, DefaultConfiguration } from './module/auth.configuration';
+
+export { OidcSecurityService } from './module/services/oidc.security.service';
+export { AuthConfiguration, DefaultConfiguration } from './module/modules/auth.configuration';
+export { OidcSecurityValidation } from './module/services/oidc.security.validation';
+export { OidcSecurityCheckSession } from './module/services/oidc.security.check-session';
+export { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-renew';
+export { OidcSecurityUserService } from './module/services/oidc.security.user-service';
+export { OidcSecurityCommon } from './module/services/oidc.security.common';
+export {
+    OidcSecurityStorage,
+    BrowserStorage
+} from './module/services/oidc.security.storage';
+export { StateValidationService } from './module/services/oidc-security-state-validation.service';
+export { OidcDataService } from './module/services/oidc-data.service';
+export { TokenHelperService } from './module/services/oidc-token-helper.service';
+export { LoggerService } from './module/services/oidc.logger.service';
+export { OidcConfigService } from './module/services/oidc.security.config.service';
+export { AuthWellKnownEndpoints } from './module/models/auth.well-known-endpoints';
 
 /**
  * AAOC Module
@@ -51,6 +71,7 @@ export class AuthModule {
         return {
             ngModule: AuthModule,
             providers: [
+                OidcConfigService,
                 OidcSecurityService,
                 OidcSecurityValidation,
                 OidcSecurityCheckSession,
@@ -58,28 +79,13 @@ export class AuthModule {
                 OidcSecurityUserService,
                 OidcSecurityCommon,
                 AuthConfiguration,
+                TokenHelperService,
+                LoggerService,
                 DefaultConfiguration,
+                ArrayHelperService,
                 AuthWellKnownEndpoints,
-                {
-                    provide: OidcSecurityStorage,
-                    useClass: token.storage || BrowserStorage
-                }
-            ]
-        };
-    }
-
-    public static forChild(token: Token = {}): ModuleWithProviders {
-        return {
-            ngModule: AuthModule,
-            providers: [
-                OidcSecurityService,
-                OidcSecurityValidation,
-                OidcSecurityCheckSession,
-                OidcSecuritySilentRenew,
-                OidcSecurityUserService,
-                OidcSecurityCommon,
-                AuthConfiguration,
-                AuthWellKnownEndpoints,
+                OidcDataService,
+                StateValidationService,
                 {
                     provide: OidcSecurityStorage,
                     useClass: token.storage || BrowserStorage
@@ -98,9 +104,7 @@ export class AuthModule {
  * @template T 
  */
 export interface Type<T> extends Function {
-
     new (...args: any[]): T;
-
 }
 
 /**
@@ -110,7 +114,5 @@ export interface Type<T> extends Function {
  * @interface Token
  */
 export interface Token {
-
     storage?: Type<any>;
-
 }
