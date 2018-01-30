@@ -10745,8 +10745,7 @@ var OidcDataService = (function () {
         this.httpClient = httpClient;
     }
     OidcDataService.prototype.getWellknownEndpoints = function (url) {
-        var headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
+        var headers = new HttpHeaders({ 'Accept': 'application/json' });
         return this.httpClient.get(url, {
             headers: headers
         });
@@ -10759,8 +10758,7 @@ var OidcDataService = (function () {
         });
     };
     OidcDataService.prototype.get = function (url) {
-        var headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
+        var headers = new HttpHeaders({ 'Accept': 'application/json' });
         return this.httpClient.get(url, {
             headers: headers
         });

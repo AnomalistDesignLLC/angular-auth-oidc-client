@@ -577,7 +577,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/module/services/oidc-data.service.ts:27</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/module/services/oidc-data.service.ts:26</a></div>
                                         </td>
                                     </tr>
             
@@ -643,7 +643,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/module/services/oidc-data.service.ts:18</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/module/services/oidc-data.service.ts:17</a></div>
                                         </td>
                                     </tr>
             
@@ -778,8 +778,7 @@ export class OidcDataService {
     constructor(private httpClient: HttpClient) {}
 
     getWellknownEndpoints&lt;T&gt;(url: string): Observable&lt;T&gt; {
-        let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+        const headers &#x3D; new HttpHeaders({&#x27;Accept&#x27;: &#x27;application/json&#x27;});
 
         return this.httpClient.get&lt;T&gt;(url, {
             headers: headers
@@ -796,8 +795,7 @@ export class OidcDataService {
     }
 
     get&lt;T&gt;(url: string): Observable&lt;T&gt; {
-        let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+        const headers &#x3D; new HttpHeaders({&#x27;Accept&#x27;: &#x27;application/json&#x27;});
 
         return this.httpClient.get&lt;T&gt;(url, {
             headers: headers

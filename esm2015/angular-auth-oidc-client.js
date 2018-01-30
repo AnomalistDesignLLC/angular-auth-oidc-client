@@ -10473,8 +10473,7 @@ class OidcDataService {
         this.httpClient = httpClient;
     }
     getWellknownEndpoints(url) {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
+        const headers = new HttpHeaders({ 'Accept': 'application/json' });
         return this.httpClient.get(url, {
             headers: headers
         });
@@ -10487,8 +10486,7 @@ class OidcDataService {
         });
     }
     get(url) {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
+        const headers = new HttpHeaders({ 'Accept': 'application/json' });
         return this.httpClient.get(url, {
             headers: headers
         });
