@@ -13764,29 +13764,28 @@ var OidcSecuritySilentRenew = (function () {
 }());
 
 var OidcDataService = (function () {
-    function OidcDataService(httpClient) {
-        this.httpClient = httpClient;
+    function OidcDataService(http$$1) {
+        this.http = http$$1;
     }
     OidcDataService.prototype.getWellknownEndpoints = function (url) {
-        var headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
-        return this.httpClient.get(url, {
+        var headers = new http.Headers();
+        headers.append('Accept', 'application/json');
+        return this.http.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.getIdentityUserData = function (url, token) {
-        var headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
-        headers = headers.set('Authorization', 'Bearer ' + decodeURIComponent(token));
-        console.log('getIdentityUserData_token: ', 'Bearer ' + decodeURIComponent(token));
-        return this.httpClient.get(url, {
+        var headers = new http.Headers();
+        headers.append('Accept', 'application/json');
+        headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+        return this.http.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.get = function (url) {
-        var headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
-        return this.httpClient.get(url, {
+        var headers = new http.Headers();
+        headers.append('Accept', 'application/json');
+        return this.http.get(url, {
             headers: headers
         });
     };
@@ -13795,7 +13794,7 @@ var OidcDataService = (function () {
     ];
     /** @nocollapse */
     OidcDataService.ctorParameters = function () { return [
-        { type: HttpClient, },
+        { type: http.Http, },
     ]; };
     return OidcDataService;
 }());
@@ -14155,7 +14154,6 @@ var OidcSecurityService = (function () {
         decoded_id_token = decoded_id_token
             ? decoded_id_token
             : this.tokenHelperService.getPayloadFromToken(id_token, false);
-        console.log(this.authConfiguration);
         return new Observable.Observable(function (observer) {
             // flow id_token token
             if (_this.authConfiguration.response_type === 'id_token token') {

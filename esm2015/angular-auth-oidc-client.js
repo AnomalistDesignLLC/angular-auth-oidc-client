@@ -1,5 +1,5 @@
 import { EventEmitter, Inject, Injectable, InjectionToken, NgModule, Optional, Output, PLATFORM_ID } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { Headers, Http, HttpModule } from '@angular/http';
 import { DOCUMENT, isPlatformBrowser, ɵparseCookieValue } from '@angular/common';
 import { Observable as Observable$1 } from 'rxjs/Observable';
 import { Router } from '@angular/router';
@@ -13493,29 +13493,28 @@ OidcSecuritySilentRenew.ctorParameters = () => [
 ];
 
 class OidcDataService {
-    constructor(httpClient) {
-        this.httpClient = httpClient;
+    constructor(http$$1) {
+        this.http = http$$1;
     }
     getWellknownEndpoints(url) {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
-        return this.httpClient.get(url, {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json');
+        return this.http.get(url, {
             headers: headers
         });
     }
     getIdentityUserData(url, token) {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
-        headers = headers.set('Authorization', 'Bearer ' + decodeURIComponent(token));
-        console.log('getIdentityUserData_token: ', 'Bearer ' + decodeURIComponent(token));
-        return this.httpClient.get(url, {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json');
+        headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+        return this.http.get(url, {
             headers: headers
         });
     }
     get(url) {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
-        return this.httpClient.get(url, {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json');
+        return this.http.get(url, {
             headers: headers
         });
     }
@@ -13525,7 +13524,7 @@ OidcDataService.decorators = [
 ];
 /** @nocollapse */
 OidcDataService.ctorParameters = () => [
-    { type: HttpClient, },
+    { type: Http, },
 ];
 
 class OidcSecurityUserService {
@@ -13869,7 +13868,6 @@ class OidcSecurityService {
         decoded_id_token = decoded_id_token
             ? decoded_id_token
             : this.tokenHelperService.getPayloadFromToken(id_token, false);
-        console.log(this.authConfiguration);
         return new Observable$1((observer) => {
             // flow id_token token
             if (this.authConfiguration.response_type === 'id_token token') {

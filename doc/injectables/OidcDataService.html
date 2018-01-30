@@ -509,7 +509,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(httpClient: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                                    <code>constructor(http: <a href="https://angular.io/api/http/Http" target="_blank">Http</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -533,9 +533,9 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>httpClient</td>
+                                                              <td>http</td>
                                                               <td>
-                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                                        <code><a href="https://angular.io/api/http/Http" target="_blank" >Http</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -577,7 +577,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/module/services/oidc-data.service.ts:33</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/module/services/oidc-data.service.ts:31</a></div>
                                         </td>
                                     </tr>
             
@@ -611,7 +611,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+                                            <b>Returns : </b>    <code>Observable&lt;Response&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -686,7 +686,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+                                            <b>Returns : </b>    <code>Observable&lt;Response&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -752,7 +752,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+                                            <b>Returns : </b>    <code>Observable&lt;Response&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -770,42 +770,40 @@
 
     <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
+import { Http, Headers, RequestOptions, Response } from &#x27;@angular/http&#x27;;
 import { Observable } from &#x27;rxjs/Observable&#x27;;
 
 @Injectable()
 export class OidcDataService {
-    constructor(private httpClient: HttpClient) {}
+    constructor(private http: Http) {}
 
-    getWellknownEndpoints&lt;T&gt;(url: string): Observable&lt;T&gt; {
-        let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+    getWellknownEndpoints&lt;T&gt;(url: string): Observable&lt;Response&gt; {
+        const headers &#x3D; new Headers();
+        headers.append(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
 
-        return this.httpClient.get&lt;T&gt;(url, {
+        return this.http.get(url, {
             headers: headers
         });
     }
 
-    getIdentityUserData&lt;T&gt;(url: string, token: string): Observable&lt;T&gt; {
-        let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
-        headers &#x3D; headers.set(
+    getIdentityUserData&lt;T&gt;(url: string, token: string): Observable&lt;Response&gt; {
+        const headers &#x3D; new Headers();
+        headers.append(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+        headers.append(
             &#x27;Authorization&#x27;,
             &#x27;Bearer &#x27; + decodeURIComponent(token)
         );
 
-        console.log(&#x27;getIdentityUserData_token: &#x27;, &#x27;Bearer &#x27; + decodeURIComponent(token));
-
-        return this.httpClient.get&lt;T&gt;(url, {
+        return this.http.get(url, {
             headers: headers
         });
     }
 
-    get&lt;T&gt;(url: string): Observable&lt;T&gt; {
-        let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+    get&lt;T&gt;(url: string): Observable&lt;Response&gt; {
+        const headers &#x3D; new Headers();
+        headers.append(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
 
-        return this.httpClient.get&lt;T&gt;(url, {
+        return this.http.get(url, {
             headers: headers
         });
     }

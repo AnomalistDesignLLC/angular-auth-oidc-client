@@ -1,40 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class OidcDataService {
-    constructor(private httpClient: HttpClient) {}
+    constructor(private http: Http) {}
 
-    getWellknownEndpoints<T>(url: string): Observable<T> {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
+    getWellknownEndpoints<T>(url: string): Observable<Response> {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json');
 
-        return this.httpClient.get<T>(url, {
+        return this.http.get(url, {
             headers: headers
         });
     }
 
-    getIdentityUserData<T>(url: string, token: string): Observable<T> {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
-        headers = headers.set(
+    getIdentityUserData<T>(url: string, token: string): Observable<Response> {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json');
+        headers.append(
             'Authorization',
             'Bearer ' + decodeURIComponent(token)
         );
 
-        console.log('getIdentityUserData_token: ', 'Bearer ' + decodeURIComponent(token));
-
-        return this.httpClient.get<T>(url, {
+        return this.http.get(url, {
             headers: headers
         });
     }
 
-    get<T>(url: string): Observable<T> {
-        let headers = new HttpHeaders();
-        headers = headers.set('Accept', 'application/json');
+    get<T>(url: string): Observable<Response> {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json');
 
-        return this.httpClient.get<T>(url, {
+        return this.http.get(url, {
             headers: headers
         });
     }
