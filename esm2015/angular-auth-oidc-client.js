@@ -1,5 +1,5 @@
 import { EventEmitter, Inject, Injectable, InjectionToken, NgModule, Optional, Output, PLATFORM_ID } from '@angular/core';
-import { Headers, Http, HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { DOCUMENT, isPlatformBrowser, ɵparseCookieValue } from '@angular/common';
 import { Observable as Observable$1 } from 'rxjs/Observable';
 import { Router } from '@angular/router';
@@ -13493,28 +13493,28 @@ OidcSecuritySilentRenew.ctorParameters = () => [
 ];
 
 class OidcDataService {
-    constructor(http$$1) {
-        this.http = http$$1;
+    constructor(httpClient) {
+        this.httpClient = httpClient;
     }
     getWellknownEndpoints(url) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json');
-        return this.http.get(url, {
+        let headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        return this.httpClient.get(url, {
             headers: headers
         });
     }
     getIdentityUserData(url, token) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json');
-        headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
-        return this.http.get(url, {
+        let headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        headers = headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+        return this.httpClient.get(url, {
             headers: headers
         });
     }
     get(url) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json');
-        return this.http.get(url, {
+        let headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        return this.httpClient.get(url, {
             headers: headers
         });
     }
@@ -13524,7 +13524,7 @@ OidcDataService.decorators = [
 ];
 /** @nocollapse */
 OidcDataService.ctorParameters = () => [
-    { type: Http, },
+    { type: HttpClient, },
 ];
 
 class OidcSecurityUserService {

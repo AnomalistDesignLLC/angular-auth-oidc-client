@@ -1,9 +1,9 @@
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 export declare class OidcDataService {
-    private http;
-    constructor(http: Http);
-    getWellknownEndpoints<T>(url: string): Observable<Response>;
-    getIdentityUserData<T>(url: string, token: string): Observable<Response>;
-    get<T>(url: string): Observable<Response>;
+    private httpClient;
+    constructor(httpClient: HttpClient);
+    getWellknownEndpoints<T>(url: string): Observable<T>;
+    getIdentityUserData<T>(url: string, token: string): Observable<T>;
+    get<T>(url: string): Observable<T>;
 }

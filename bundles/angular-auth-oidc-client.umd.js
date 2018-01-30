@@ -13764,28 +13764,28 @@ var OidcSecuritySilentRenew = (function () {
 }());
 
 var OidcDataService = (function () {
-    function OidcDataService(http$$1) {
-        this.http = http$$1;
+    function OidcDataService(httpClient) {
+        this.httpClient = httpClient;
     }
     OidcDataService.prototype.getWellknownEndpoints = function (url) {
-        var headers = new http.Headers();
-        headers.append('Accept', 'application/json');
-        return this.http.get(url, {
+        var headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        return this.httpClient.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.getIdentityUserData = function (url, token) {
-        var headers = new http.Headers();
-        headers.append('Accept', 'application/json');
-        headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
-        return this.http.get(url, {
+        var headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        headers = headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+        return this.httpClient.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.get = function (url) {
-        var headers = new http.Headers();
-        headers.append('Accept', 'application/json');
-        return this.http.get(url, {
+        var headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        return this.httpClient.get(url, {
             headers: headers
         });
     };
@@ -13794,7 +13794,7 @@ var OidcDataService = (function () {
     ];
     /** @nocollapse */
     OidcDataService.ctorParameters = function () { return [
-        { type: http.Http, },
+        { type: HttpClient, },
     ]; };
     return OidcDataService;
 }());

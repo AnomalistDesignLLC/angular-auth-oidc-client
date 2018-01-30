@@ -1,5 +1,5 @@
 import { EventEmitter, Inject, Injectable, InjectionToken, NgModule, Optional, Output, PLATFORM_ID } from '@angular/core';
-import { Headers, Http, HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { DOCUMENT, isPlatformBrowser, ɵparseCookieValue } from '@angular/common';
 import { Observable as Observable$1 } from 'rxjs/Observable';
 import { Router } from '@angular/router';
@@ -13765,28 +13765,28 @@ var OidcSecuritySilentRenew = (function () {
 }());
 
 var OidcDataService = (function () {
-    function OidcDataService(http$$1) {
-        this.http = http$$1;
+    function OidcDataService(httpClient) {
+        this.httpClient = httpClient;
     }
     OidcDataService.prototype.getWellknownEndpoints = function (url) {
-        var headers = new Headers();
-        headers.append('Accept', 'application/json');
-        return this.http.get(url, {
+        var headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        return this.httpClient.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.getIdentityUserData = function (url, token) {
-        var headers = new Headers();
-        headers.append('Accept', 'application/json');
-        headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
-        return this.http.get(url, {
+        var headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        headers = headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+        return this.httpClient.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.get = function (url) {
-        var headers = new Headers();
-        headers.append('Accept', 'application/json');
-        return this.http.get(url, {
+        var headers = new HttpHeaders();
+        headers = headers.append('Accept', 'application/json');
+        return this.httpClient.get(url, {
             headers: headers
         });
     };
@@ -13795,7 +13795,7 @@ var OidcDataService = (function () {
     ];
     /** @nocollapse */
     OidcDataService.ctorParameters = function () { return [
-        { type: Http, },
+        { type: HttpClient, },
     ]; };
     return OidcDataService;
 }());
