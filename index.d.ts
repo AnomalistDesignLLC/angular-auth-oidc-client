@@ -1,32 +1,25 @@
-/**
- * Provides a single interface for the angular-auth-oidc-client Module to be used in other modules
- *
- * @file index
- * @author Matthew Aaron Raymer <matthew.raymer@anomalistdesign.com>
- * @license UNLICENSED
- * @copyright Qpons 2017
- */
-/**
- * Dependencies
- *
- * @import
- */
 import { ModuleWithProviders } from '@angular/core';
 /**
  * Dependencies
  *
  * @export
  */
+export { ArrayHelperService } from './module/services/oidc-array-helper.service';
 export { NgModule, ModuleWithProviders } from '@angular/core';
-export { OidcSecurityService } from './module/oidc.security.service';
-export { OidcSecurityValidation } from './module/oidc.security.validation';
-export { OidcSecurityCheckSession } from './module/oidc.security.check-session';
-export { OidcSecuritySilentRenew } from './module/oidc.security.silent-renew';
-export { OidcSecurityUserService } from './module/oidc.security.user-service';
-export { OidcSecurityCommon } from './module/oidc.security.common';
-export { OidcSecurityStorage, BrowserStorage } from './module/oidc.security.storage';
-export { AuthWellKnownEndpoints } from './module/auth.well-known-endpoints';
-export { AuthConfiguration, OpenIDImplicitFlowConfiguration, DefaultConfiguration } from './module/auth.configuration';
+export { OidcSecurityService } from './module/services/oidc.security.service';
+export { AuthConfiguration, DefaultConfiguration } from './module/modules/auth.configuration';
+export { OidcSecurityValidation } from './module/services/oidc.security.validation';
+export { OidcSecurityCheckSession } from './module/services/oidc.security.check-session';
+export { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-renew';
+export { OidcSecurityUserService } from './module/services/oidc.security.user-service';
+export { OidcSecurityCommon } from './module/services/oidc.security.common';
+export { OidcSecurityStorage, BrowserStorage } from './module/services/oidc.security.storage';
+export { StateValidationService } from './module/services/oidc-security-state-validation.service';
+export { OidcDataService } from './module/services/oidc-data.service';
+export { TokenHelperService } from './module/services/oidc-token-helper.service';
+export { LoggerService } from './module/services/oidc.logger.service';
+export { OidcConfigService } from './module/services/oidc.security.config.service';
+export { AuthWellKnownEndpoints } from './module/models/auth.well-known-endpoints';
 /**
  * AAOC Module
  *
@@ -35,7 +28,6 @@ export { AuthConfiguration, OpenIDImplicitFlowConfiguration, DefaultConfiguratio
  */
 export declare class AuthModule {
     static forRoot(token?: Token): ModuleWithProviders;
-    static forChild(token?: Token): ModuleWithProviders;
 }
 /**
  * Interface for Type<T>
