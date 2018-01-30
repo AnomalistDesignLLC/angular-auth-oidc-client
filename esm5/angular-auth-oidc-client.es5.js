@@ -12569,6 +12569,11 @@ var DefaultConfiguration = (function () {
     }
     return DefaultConfiguration;
 }());
+var OpenIDImplicitFlowConfiguration = (function () {
+    function OpenIDImplicitFlowConfiguration() {
+    }
+    return OpenIDImplicitFlowConfiguration;
+}());
 var AuthConfiguration = (function () {
     function AuthConfiguration(defaultConfig) {
         this.defaultConfig = defaultConfig;
@@ -14606,6 +14611,6 @@ var AuthModule = (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { AuthModule, ArrayHelperService, OidcSecurityService, AuthConfiguration, DefaultConfiguration, OidcSecurityValidation, OidcSecurityCheckSession, OidcSecuritySilentRenew, OidcSecurityUserService, OidcSecurityCommon, OidcSecurityStorage, BrowserStorage, StateValidationService, OidcDataService, TokenHelperService, LoggerService, OidcConfigService, AuthWellKnownEndpoints };
+export { AuthModule, ArrayHelperService, OidcSecurityService, AuthConfiguration, DefaultConfiguration, OpenIDImplicitFlowConfiguration, OidcSecurityValidation, OidcSecurityCheckSession, OidcSecuritySilentRenew, OidcSecurityUserService, OidcSecurityCommon, OidcSecurityStorage, BrowserStorage, StateValidationService, OidcDataService, TokenHelperService, LoggerService, OidcConfigService, AuthWellKnownEndpoints };
 export { NgModule } from '@angular/core';
 //# sourceMappingURL=angular-auth-oidc-client.es5.js.map

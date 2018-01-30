@@ -7,7 +7,7 @@ import { ModuleWithProviders } from '@angular/core';
 export { ArrayHelperService } from './module/services/oidc-array-helper.service';
 export { NgModule, ModuleWithProviders } from '@angular/core';
 export { OidcSecurityService } from './module/services/oidc.security.service';
-export { AuthConfiguration, DefaultConfiguration } from './module/modules/auth.configuration';
+export { AuthConfiguration, DefaultConfiguration, OpenIDImplicitFlowConfiguration } from './module/modules/auth.configuration';
 export { OidcSecurityValidation } from './module/services/oidc.security.validation';
 export { OidcSecurityCheckSession } from './module/services/oidc.security.check-session';
 export { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-renew';

@@ -16,7 +16,7 @@ import { ArrayHelperService } from './module/services/oidc-array-helper.service'
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { OidcSecurityService } from './module/services/oidc.security.service';
-import { AuthConfiguration, DefaultConfiguration } from './module/modules/auth.configuration';
+import { AuthConfiguration, DefaultConfiguration, OpenIDImplicitFlowConfiguration } from './module/modules/auth.configuration';
 import { OidcSecurityValidation } from './module/services/oidc.security.validation';
 import { OidcSecurityCheckSession } from './module/services/oidc.security.check-session';
 import { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-renew';
@@ -42,7 +42,7 @@ export { ArrayHelperService } from './module/services/oidc-array-helper.service'
 export { NgModule, ModuleWithProviders } from '@angular/core';
 
 export { OidcSecurityService } from './module/services/oidc.security.service';
-export { AuthConfiguration, DefaultConfiguration } from './module/modules/auth.configuration';
+export { AuthConfiguration, DefaultConfiguration, OpenIDImplicitFlowConfiguration } from './module/modules/auth.configuration';
 export { OidcSecurityValidation } from './module/services/oidc.security.validation';
 export { OidcSecurityCheckSession } from './module/services/oidc.security.check-session';
 export { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-renew';

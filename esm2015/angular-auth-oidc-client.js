@@ -12562,7 +12562,8 @@ class DefaultConfiguration {
         this.storage = typeof Storage !== 'undefined' ? sessionStorage : null;
     }
 }
-
+class OpenIDImplicitFlowConfiguration {
+}
 class AuthConfiguration {
     constructor(defaultConfig) {
         this.defaultConfig = defaultConfig;
@@ -14248,6 +14249,6 @@ AuthModule.ctorParameters = () => [];
  * Generated bundle index. Do not edit.
  */
 
-export { AuthModule, ArrayHelperService, OidcSecurityService, AuthConfiguration, DefaultConfiguration, OidcSecurityValidation, OidcSecurityCheckSession, OidcSecuritySilentRenew, OidcSecurityUserService, OidcSecurityCommon, OidcSecurityStorage, BrowserStorage, StateValidationService, OidcDataService, TokenHelperService, LoggerService, OidcConfigService, AuthWellKnownEndpoints };
+export { AuthModule, ArrayHelperService, OidcSecurityService, AuthConfiguration, DefaultConfiguration, OpenIDImplicitFlowConfiguration, OidcSecurityValidation, OidcSecurityCheckSession, OidcSecuritySilentRenew, OidcSecurityUserService, OidcSecurityCommon, OidcSecurityStorage, BrowserStorage, StateValidationService, OidcDataService, TokenHelperService, LoggerService, OidcConfigService, AuthWellKnownEndpoints };
 export { NgModule } from '@angular/core';
 //# sourceMappingURL=angular-auth-oidc-client.js.map

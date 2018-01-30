@@ -12569,6 +12569,11 @@ var DefaultConfiguration = (function () {
     }
     return DefaultConfiguration;
 }());
+var OpenIDImplicitFlowConfiguration = (function () {
+    function OpenIDImplicitFlowConfiguration() {
+    }
+    return OpenIDImplicitFlowConfiguration;
+}());
 var AuthConfiguration = (function () {
     function AuthConfiguration(defaultConfig) {
         this.defaultConfig = defaultConfig;
@@ -14612,6 +14617,7 @@ exports.NgModule = core.NgModule;
 exports.OidcSecurityService = OidcSecurityService;
 exports.AuthConfiguration = AuthConfiguration;
 exports.DefaultConfiguration = DefaultConfiguration;
+exports.OpenIDImplicitFlowConfiguration = OpenIDImplicitFlowConfiguration;
 exports.OidcSecurityValidation = OidcSecurityValidation;
 exports.OidcSecurityCheckSession = OidcSecurityCheckSession;
 exports.OidcSecuritySilentRenew = OidcSecuritySilentRenew;
