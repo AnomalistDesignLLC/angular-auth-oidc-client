@@ -1,0 +1,1554 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-auth-oidc-client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-auth-oidc-client documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">angular-auth-oidc-client documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                        <a href="../changelog.html"
+                                    >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
+                                        <a href="../license.html"
+                                    >
+                                        <span class="fa fa-file-text-o"></span>LICENSE
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-up"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AuthModule.html" >AuthModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/AuthWellKnownEndpoints.html" >AuthWellKnownEndpoints</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/DefaultConfiguration.html" >DefaultConfiguration</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/JwtKey.html" >JwtKey</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/JwtKeys.html" >JwtKeys</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/OpenIDImplicitFlowConfiguration.html"  data-type="entity-link" class="active" >OpenIDImplicitFlowConfiguration</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/UriEncoder.html" >UriEncoder</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ValidateStateResult.html" >ValidateStateResult</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/ArrayHelperService.html" >ArrayHelperService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/AuthConfiguration.html" >AuthConfiguration</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/BrowserStorage.html" >BrowserStorage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LoggerService.html" >LoggerService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcConfigService.html" >OidcConfigService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcDataService.html" >OidcDataService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityCheckSession.html" >OidcSecurityCheckSession</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityCommon.html" >OidcSecurityCommon</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityService.html" >OidcSecurityService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecuritySilentRenew.html" >OidcSecuritySilentRenew</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityStorage.html" >OidcSecurityStorage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityUserService.html" >OidcSecurityUserService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityValidation.html" >OidcSecurityValidation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/StateValidationService.html" >StateValidationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/TokenHelperService.html" >TokenHelperService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/Token.html" >Token</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Type.html" >Type</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">angular-auth-oidc-client documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                               <a href="../changelog.html"
+                                           >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                               <a href="../license.html"
+                                           >
+                                               <span class="fa fa-file-text-o"></span>LICENSE
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-up"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AuthModule.html" >AuthModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/AuthWellKnownEndpoints.html" >AuthWellKnownEndpoints</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/DefaultConfiguration.html" >DefaultConfiguration</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/JwtKey.html" >JwtKey</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/JwtKeys.html" >JwtKeys</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/OpenIDImplicitFlowConfiguration.html"  data-type="entity-link" class="active" >OpenIDImplicitFlowConfiguration</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/UriEncoder.html" >UriEncoder</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ValidateStateResult.html" >ValidateStateResult</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/ArrayHelperService.html" >ArrayHelperService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/AuthConfiguration.html" >AuthConfiguration</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/BrowserStorage.html" >BrowserStorage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LoggerService.html" >LoggerService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcConfigService.html" >OidcConfigService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcDataService.html" >OidcDataService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityCheckSession.html" >OidcSecurityCheckSession</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityCommon.html" >OidcSecurityCommon</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityService.html" >OidcSecurityService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecuritySilentRenew.html" >OidcSecuritySilentRenew</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityStorage.html" >OidcSecurityStorage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityUserService.html" >OidcSecurityUserService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityValidation.html" >OidcSecurityValidation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/StateValidationService.html" >StateValidationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/TokenHelperService.html" >TokenHelperService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/Token.html" >Token</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Type.html" >Type</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>OpenIDImplicitFlowConfiguration</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/module/modules/auth.configuration.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+                <h3 id="index">Index</h3>
+                <table class="table table-sm table-bordered index-table">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-4">
+                                <h6><b>Properties</b></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <ul class="index-list">
+                                    <li>
+                                        <a href="#auto_clean_state_after_authentication">auto_clean_state_after_authentication</a>
+                                    </li>
+                                    <li>
+                                        <a href="#auto_userinfo">auto_userinfo</a>
+                                    </li>
+                                    <li>
+                                        <a href="#client_id">client_id</a>
+                                    </li>
+                                    <li>
+                                        <a href="#forbidden_route">forbidden_route</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hd_param">hd_param</a>
+                                    </li>
+                                    <li>
+                                        <a href="#log_console_debug_active">log_console_debug_active</a>
+                                    </li>
+                                    <li>
+                                        <a href="#log_console_warning_active">log_console_warning_active</a>
+                                    </li>
+                                    <li>
+                                        <a href="#max_id_token_iat_offset_allowed_in_seconds">max_id_token_iat_offset_allowed_in_seconds</a>
+                                    </li>
+                                    <li>
+                                        <a href="#post_login_route">post_login_route</a>
+                                    </li>
+                                    <li>
+                                        <a href="#post_logout_redirect_uri">post_logout_redirect_uri</a>
+                                    </li>
+                                    <li>
+                                        <a href="#redirect_url">redirect_url</a>
+                                    </li>
+                                    <li>
+                                        <a href="#resource">resource</a>
+                                    </li>
+                                    <li>
+                                        <a href="#response_type">response_type</a>
+                                    </li>
+                                    <li>
+                                        <a href="#scope">scope</a>
+                                    </li>
+                                    <li>
+                                        <a href="#silent_renew">silent_renew</a>
+                                    </li>
+                                    <li>
+                                        <a href="#silent_renew_offset_in_seconds">silent_renew_offset_in_seconds</a>
+                                    </li>
+                                    <li>
+                                        <a href="#start_checksession">start_checksession</a>
+                                    </li>
+                                    <li>
+                                        <a href="#storage">storage</a>
+                                    </li>
+                                    <li>
+                                        <a href="#stsServer">stsServer</a>
+                                    </li>
+                                    <li>
+                                        <a href="#trigger_authorization_result_event">trigger_authorization_result_event</a>
+                                    </li>
+                                    <li>
+                                        <a href="#unauthorized_route">unauthorized_route</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
+
+
+            <section>
+                
+                    <h3 id="inputs">
+                        Properties
+                    </h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="auto_clean_state_after_authentication"></a>
+                                    <span class="name">
+                                        <b>
+                                        auto_clean_state_after_authentication
+                                        </b>
+                                        <a href="#auto_clean_state_after_authentication"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>auto_clean_state_after_authentication:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/module/modules/auth.configuration.ts:55</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="auto_userinfo"></a>
+                                    <span class="name">
+                                        <b>
+                                        auto_userinfo
+                                        </b>
+                                        <a href="#auto_userinfo"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>auto_userinfo:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/module/modules/auth.configuration.ts:54</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="client_id"></a>
+                                    <span class="name">
+                                        <b>
+                                        client_id
+                                        </b>
+                                        <a href="#client_id"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>client_id:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/module/modules/auth.configuration.ts:42</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="forbidden_route"></a>
+                                    <span class="name">
+                                        <b>
+                                        forbidden_route
+                                        </b>
+                                        <a href="#forbidden_route"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>forbidden_route:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/module/modules/auth.configuration.ts:52</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="hd_param"></a>
+                                    <span class="name">
+                                        <b>
+                                        hd_param
+                                        </b>
+                                        <a href="#hd_param"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>hd_param:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/module/modules/auth.configuration.ts:46</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="log_console_debug_active"></a>
+                                    <span class="name">
+                                        <b>
+                                        log_console_debug_active
+                                        </b>
+                                        <a href="#log_console_debug_active"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>log_console_debug_active:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/module/modules/auth.configuration.ts:58</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="log_console_warning_active"></a>
+                                    <span class="name">
+                                        <b>
+                                        log_console_warning_active
+                                        </b>
+                                        <a href="#log_console_warning_active"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>log_console_warning_active:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/module/modules/auth.configuration.ts:57</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="max_id_token_iat_offset_allowed_in_seconds"></a>
+                                    <span class="name">
+                                        <b>
+                                        max_id_token_iat_offset_allowed_in_seconds
+                                        </b>
+                                        <a href="#max_id_token_iat_offset_allowed_in_seconds"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>max_id_token_iat_offset_allowed_in_seconds:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/module/modules/auth.configuration.ts:59</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="post_login_route"></a>
+                                    <span class="name">
+                                        <b>
+                                        post_login_route
+                                        </b>
+                                        <a href="#post_login_route"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>post_login_route:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/module/modules/auth.configuration.ts:51</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="post_logout_redirect_uri"></a>
+                                    <span class="name">
+                                        <b>
+                                        post_logout_redirect_uri
+                                        </b>
+                                        <a href="#post_logout_redirect_uri"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>post_logout_redirect_uri:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/module/modules/auth.configuration.ts:47</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="redirect_url"></a>
+                                    <span class="name">
+                                        <b>
+                                        redirect_url
+                                        </b>
+                                        <a href="#redirect_url"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>redirect_url:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/module/modules/auth.configuration.ts:41</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="resource"></a>
+                                    <span class="name">
+                                        <b>
+                                        resource
+                                        </b>
+                                        <a href="#resource"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>resource:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/module/modules/auth.configuration.ts:44</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="response_type"></a>
+                                    <span class="name">
+                                        <b>
+                                        response_type
+                                        </b>
+                                        <a href="#response_type"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>response_type:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/module/modules/auth.configuration.ts:43</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="scope"></a>
+                                    <span class="name">
+                                        <b>
+                                        scope
+                                        </b>
+                                        <a href="#scope"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>scope:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/module/modules/auth.configuration.ts:45</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="silent_renew"></a>
+                                    <span class="name">
+                                        <b>
+                                        silent_renew
+                                        </b>
+                                        <a href="#silent_renew"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>silent_renew:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/module/modules/auth.configuration.ts:49</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="silent_renew_offset_in_seconds"></a>
+                                    <span class="name">
+                                        <b>
+                                        silent_renew_offset_in_seconds
+                                        </b>
+                                        <a href="#silent_renew_offset_in_seconds"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>silent_renew_offset_in_seconds:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/module/modules/auth.configuration.ts:50</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="start_checksession"></a>
+                                    <span class="name">
+                                        <b>
+                                        start_checksession
+                                        </b>
+                                        <a href="#start_checksession"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>start_checksession:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/module/modules/auth.configuration.ts:48</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="storage"></a>
+                                    <span class="name">
+                                        <b>
+                                        storage
+                                        </b>
+                                        <a href="#storage"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>storage:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/module/modules/auth.configuration.ts:60</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="stsServer"></a>
+                                    <span class="name">
+                                        <b>
+                                        stsServer
+                                        </b>
+                                        <a href="#stsServer"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>stsServer:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/module/modules/auth.configuration.ts:40</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="trigger_authorization_result_event"></a>
+                                    <span class="name">
+                                        <b>
+                                        trigger_authorization_result_event
+                                        </b>
+                                        <a href="#trigger_authorization_result_event"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>trigger_authorization_result_event:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/module/modules/auth.configuration.ts:56</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="unauthorized_route"></a>
+                                    <span class="name">
+                                        <b>
+                                        unauthorized_route
+                                        </b>
+                                        <a href="#unauthorized_route"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>unauthorized_route:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/module/modules/auth.configuration.ts:53</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+            </section>
+
+    </div>
+
+
+    <div class="tab-pane fade tab-source-code" id="c-source">
+        <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+export class DefaultConfiguration {
+    stsServer &#x3D; &#x27;https://localhost:44318&#x27;;
+    redirect_url &#x3D; &#x27;https://localhost:44311&#x27;;
+    // The Client MUST validate that the aud (audience) Claim contains its client_id value registered at the Issuer identified
+    // by the iss (issuer) Claim as an audience.
+    // The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience,
+    // or if it contains additional audiences not trusted by the Client.
+    client_id &#x3D; &#x27;angularclient&#x27;;
+    response_type &#x3D; &#x27;id_token token&#x27;;
+    // For some oidc, we require resource identifier to be provided along with the request.
+    resource &#x3D; &#x27;&#x27;;
+    scope &#x3D; &#x27;openid email profile&#x27;;
+    // Only for Google Auth with particular G Suite domain, see https://developers.google.com/identity/protocols/OpenIDConnect#hd-param
+    hd_param &#x3D; &#x27;&#x27;;
+    post_logout_redirect_uri &#x3D; &#x27;https://localhost:44311/unauthorized&#x27;;
+    start_checksession &#x3D; false;
+    silent_renew &#x3D; true;
+    silent_renew_offset_in_seconds &#x3D; 0;
+    post_login_route &#x3D; &#x27;/&#x27;;
+    // HTTP 403
+    forbidden_route &#x3D; &#x27;/forbidden&#x27;;
+    // HTTP 401
+    unauthorized_route &#x3D; &#x27;/unauthorized&#x27;;
+    auto_userinfo &#x3D; true;
+    auto_clean_state_after_authentication: true;
+    trigger_authorization_result_event: false;
+    log_console_warning_active &#x3D; true;
+    log_console_debug_active &#x3D; false;
+
+    // id_token C8: The iat Claim can be used to reject tokens that were issued too far away from the current time,
+    // limiting the amount of time that nonces need to be stored to prevent attacks.The acceptable range is Client specific.
+    max_id_token_iat_offset_allowed_in_seconds &#x3D; 3;
+
+    storage &#x3D; typeof Storage !&#x3D;&#x3D; &#x27;undefined&#x27; ? sessionStorage : null;
+}
+
+export class OpenIDImplicitFlowConfiguration {
+    stsServer: string;
+    redirect_url: string;
+    client_id: string;
+    response_type: string;
+    resource: string;
+    scope: string;
+    hd_param: string;
+    post_logout_redirect_uri: string;
+    start_checksession: boolean;
+    silent_renew: boolean;
+    silent_renew_offset_in_seconds: number;
+    post_login_route: string;
+    forbidden_route: string;
+    unauthorized_route: string;
+    auto_userinfo: boolean;
+    auto_clean_state_after_authentication: boolean;
+    trigger_authorization_result_event: boolean;
+    log_console_warning_active: boolean;
+    log_console_debug_active: boolean;
+    max_id_token_iat_offset_allowed_in_seconds: number;
+    storage: any;
+}
+
+@Injectable()
+export class AuthConfiguration {
+    private openIDImplicitFlowConfiguration: OpenIDImplicitFlowConfiguration;
+
+    constructor(private defaultConfig: DefaultConfiguration) {}
+
+    get stsServer(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.stsServer ||
+            this.defaultConfig.stsServer
+        );
+    }
+
+    get redirect_url(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.redirect_url ||
+            this.defaultConfig.redirect_url
+        );
+    }
+
+    get client_id(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.client_id ||
+            this.defaultConfig.client_id
+        );
+    }
+
+    get response_type(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.response_type ||
+            this.defaultConfig.response_type
+        );
+    }
+
+    get resource(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.resource ||
+            this.defaultConfig.resource
+        );
+    }
+
+    get scope(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.scope ||
+            this.defaultConfig.scope
+        );
+    }
+
+    get hd_param(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.hd_param ||
+            this.defaultConfig.hd_param
+        );
+    }
+
+    get post_logout_redirect_uri(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.post_logout_redirect_uri ||
+            this.defaultConfig.post_logout_redirect_uri
+        );
+    }
+
+    get start_checksession(): boolean {
+        return this.openIDImplicitFlowConfiguration.start_checksession !&#x3D;&#x3D;
+            undefined
+            ? this.openIDImplicitFlowConfiguration.start_checksession
+            : this.defaultConfig.start_checksession;
+    }
+
+    get silent_renew(): boolean {
+        return this.openIDImplicitFlowConfiguration.silent_renew !&#x3D;&#x3D; undefined
+            ? this.openIDImplicitFlowConfiguration.silent_renew
+            : this.defaultConfig.silent_renew;
+    }
+
+    get silent_renew_offset_in_seconds(): number {
+        return (
+            this.openIDImplicitFlowConfiguration
+                .silent_renew_offset_in_seconds ||
+            this.defaultConfig.silent_renew_offset_in_seconds
+        );
+    }
+
+    get post_login_route(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.post_login_route ||
+            this.defaultConfig.post_login_route
+        );
+    }
+
+    get forbidden_route(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.forbidden_route ||
+            this.defaultConfig.forbidden_route
+        );
+    }
+
+    get unauthorized_route(): string {
+        return (
+            this.openIDImplicitFlowConfiguration.unauthorized_route ||
+            this.defaultConfig.unauthorized_route
+        );
+    }
+
+    get auto_userinfo(): boolean {
+        return this.openIDImplicitFlowConfiguration.auto_userinfo !&#x3D;&#x3D; undefined
+            ? this.openIDImplicitFlowConfiguration.auto_userinfo
+            : this.defaultConfig.auto_userinfo;
+    }
+
+    get auto_clean_state_after_authentication(): boolean {
+        return this.openIDImplicitFlowConfiguration
+            .auto_clean_state_after_authentication !&#x3D;&#x3D; undefined
+            ? this.openIDImplicitFlowConfiguration
+                  .auto_clean_state_after_authentication
+            : this.defaultConfig.auto_clean_state_after_authentication;
+    }
+
+    get trigger_authorization_result_event(): boolean {
+        return this.openIDImplicitFlowConfiguration
+            .trigger_authorization_result_event !&#x3D;&#x3D; undefined
+            ? this.openIDImplicitFlowConfiguration
+                  .trigger_authorization_result_event
+            : this.defaultConfig.trigger_authorization_result_event;
+    }
+
+    get log_console_warning_active(): boolean {
+        return this.openIDImplicitFlowConfiguration
+            .log_console_warning_active !&#x3D;&#x3D; undefined
+            ? this.openIDImplicitFlowConfiguration.log_console_warning_active
+            : this.defaultConfig.log_console_warning_active;
+    }
+
+    get log_console_debug_active(): boolean {
+        return this.openIDImplicitFlowConfiguration.log_console_debug_active !&#x3D;&#x3D;
+            undefined
+            ? this.openIDImplicitFlowConfiguration.log_console_debug_active
+            : this.defaultConfig.log_console_debug_active;
+    }
+
+    get max_id_token_iat_offset_allowed_in_seconds(): number {
+        return (
+            this.openIDImplicitFlowConfiguration
+                .max_id_token_iat_offset_allowed_in_seconds ||
+            this.defaultConfig.max_id_token_iat_offset_allowed_in_seconds
+        );
+    }
+
+    get storage(): any {
+        return this.openIDImplicitFlowConfiguration.storage || this.defaultConfig.storage;
+    }
+
+    init(openIDImplicitFlowConfiguration: OpenIDImplicitFlowConfiguration) {
+        this.openIDImplicitFlowConfiguration &#x3D; openIDImplicitFlowConfiguration;
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>

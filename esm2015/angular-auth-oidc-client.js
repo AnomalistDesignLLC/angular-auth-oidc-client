@@ -13867,6 +13867,7 @@ class OidcSecurityService {
         decoded_id_token = decoded_id_token
             ? decoded_id_token
             : this.tokenHelperService.getPayloadFromToken(id_token, false);
+        console.log('id_token: ', id_token);
         return new Observable$1((observer) => {
             // flow id_token token
             if (this.authConfiguration.response_type === 'id_token token') {

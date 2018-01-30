@@ -1,0 +1,2057 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-auth-oidc-client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-auth-oidc-client documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">angular-auth-oidc-client documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                        <a href="../changelog.html"
+                                    >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
+                                        <a href="../license.html"
+                                    >
+                                        <span class="fa fa-file-text-o"></span>LICENSE
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-up"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AuthModule.html" >AuthModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/AuthWellKnownEndpoints.html" >AuthWellKnownEndpoints</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/DefaultConfiguration.html" >DefaultConfiguration</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/JwtKey.html" >JwtKey</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/JwtKeys.html" >JwtKeys</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/OpenIDImplicitFlowConfiguration.html" >OpenIDImplicitFlowConfiguration</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/UriEncoder.html" >UriEncoder</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ValidateStateResult.html" >ValidateStateResult</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/ArrayHelperService.html" >ArrayHelperService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/AuthConfiguration.html" >AuthConfiguration</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/BrowserStorage.html" >BrowserStorage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LoggerService.html" >LoggerService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcConfigService.html" >OidcConfigService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcDataService.html" >OidcDataService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityCheckSession.html" >OidcSecurityCheckSession</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityCommon.html" >OidcSecurityCommon</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityService.html" >OidcSecurityService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecuritySilentRenew.html" >OidcSecuritySilentRenew</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityStorage.html" >OidcSecurityStorage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityUserService.html" >OidcSecurityUserService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OidcSecurityValidation.html"  data-type="entity-link" class="active" >OidcSecurityValidation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/StateValidationService.html" >StateValidationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/TokenHelperService.html" >TokenHelperService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/Token.html" >Token</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Type.html" >Type</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">angular-auth-oidc-client documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                               <a href="../changelog.html"
+                                           >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                               <a href="../license.html"
+                                           >
+                                               <span class="fa fa-file-text-o"></span>LICENSE
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-up"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AuthModule.html" >AuthModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/AuthWellKnownEndpoints.html" >AuthWellKnownEndpoints</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/DefaultConfiguration.html" >DefaultConfiguration</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/JwtKey.html" >JwtKey</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/JwtKeys.html" >JwtKeys</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/OpenIDImplicitFlowConfiguration.html" >OpenIDImplicitFlowConfiguration</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/UriEncoder.html" >UriEncoder</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ValidateStateResult.html" >ValidateStateResult</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/ArrayHelperService.html" >ArrayHelperService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/AuthConfiguration.html" >AuthConfiguration</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/BrowserStorage.html" >BrowserStorage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LoggerService.html" >LoggerService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcConfigService.html" >OidcConfigService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcDataService.html" >OidcDataService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityCheckSession.html" >OidcSecurityCheckSession</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityCommon.html" >OidcSecurityCommon</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityService.html" >OidcSecurityService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecuritySilentRenew.html" >OidcSecuritySilentRenew</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityStorage.html" >OidcSecurityStorage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityUserService.html" >OidcSecurityUserService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OidcSecurityValidation.html"  data-type="entity-link" class="active" >OidcSecurityValidation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/StateValidationService.html" >StateValidationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/TokenHelperService.html" >TokenHelperService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/Token.html" >Token</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Type.html" >Type</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>OidcSecurityValidation</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/module/services/oidc.security.validation.ts</code>
+        </p>
+
+
+
+            <section>
+                <h3 id="index">Index</h3>
+                <table class="table table-sm table-bordered index-table">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-4">
+                                <h6><b>Methods</b></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <ul class="index-list">
+                                    <li>
+                                        <a href="#config_validate_response_type">config_validate_response_type</a>
+                                    </li>
+                                    <li>
+                                            <span class="modifier">Private</span>
+                                        <a href="#generate_at_hash">generate_at_hash</a>
+                                    </li>
+                                    <li>
+                                        <a href="#isTokenExpired">isTokenExpired</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_id_token_at_hash">validate_id_token_at_hash</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_id_token_aud">validate_id_token_aud</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_id_token_exp_not_expired">validate_id_token_exp_not_expired</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_id_token_iat_max_offset">validate_id_token_iat_max_offset</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_id_token_iss">validate_id_token_iss</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_id_token_nonce">validate_id_token_nonce</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_required_id_token">validate_required_id_token</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_signature_id_token">validate_signature_id_token</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validate_userdata_sub_id_token">validate_userdata_sub_id_token</a>
+                                    </li>
+                                    <li>
+                                        <a href="#validateStateFromHashCallback">validateStateFromHashCallback</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h3 id="constructor">Constructor</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>constructor(arrayHelperService: <a href="../injectables/ArrayHelperService.html">ArrayHelperService</a>, tokenHelperService: <a href="../injectables/TokenHelperService.html">TokenHelperService</a>, loggerService: <a href="../injectables/LoggerService.html">LoggerService</a>)</code>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/module/services/oidc.security.validation.ts:51</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div>
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>arrayHelperService</td>
+                                                              <td>
+                                                                        <code><a href="../injectables/ArrayHelperService.html" target="_self" >ArrayHelperService</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>tokenHelperService</td>
+                                                              <td>
+                                                                        <code><a href="../injectables/TokenHelperService.html" target="_self" >TokenHelperService</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>loggerService</td>
+                                                              <td>
+                                                                        <code><a href="../injectables/LoggerService.html" target="_self" >LoggerService</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+            <section>
+                
+                    <h3 id="methods">
+                        Methods
+                    </h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="config_validate_response_type"></a>
+                                    <span class="name">
+                                        <b>
+                                        config_validate_response_type
+                                        </b>
+                                        <a href="#config_validate_response_type"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>config_validate_response_type(response_type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="383" class="link-to-prism">src/module/services/oidc.security.validation.ts:383</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>response_type</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="generate_at_hash"></a>
+                                    <span class="name">
+                                        <b>
+                                            <span class="modifier">Private</span>
+                                        generate_at_hash
+                                        </b>
+                                        <a href="#generate_at_hash"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon fa fa-reset"></span>
+                                    <code>generate_at_hash(access_token: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="438" class="link-to-prism">src/module/services/oidc.security.validation.ts:438</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>access_token</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="isTokenExpired"></a>
+                                    <span class="name">
+                                        <b>
+                                        isTokenExpired
+                                        </b>
+                                        <a href="#isTokenExpired"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>isTokenExpired(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, offsetSeconds?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/module/services/oidc.security.validation.ts:59</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>token</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>offsetSeconds</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                              </td>
+                                                              <td>
+                                                                  true
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_id_token_at_hash"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_id_token_at_hash
+                                        </b>
+                                        <a href="#validate_id_token_at_hash"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_id_token_at_hash(access_token: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, at_hash: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="417" class="link-to-prism">src/module/services/oidc.security.validation.ts:417</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>access_token</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>at_hash</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_id_token_aud"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_id_token_aud
+                                        </b>
+                                        <a href="#validate_id_token_aud"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_id_token_aud(dataIdToken: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, aud: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/module/services/oidc.security.validation.ts:225</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>dataIdToken</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>aud</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_id_token_exp_not_expired"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_id_token_exp_not_expired
+                                        </b>
+                                        <a href="#validate_id_token_exp_not_expired"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_id_token_exp_not_expired(decoded_id_token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, offsetSeconds?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/module/services/oidc.security.validation.ts:67</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>decoded_id_token</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>offsetSeconds</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                              </td>
+                                                              <td>
+                                                                  true
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_id_token_iat_max_offset"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_id_token_iat_max_offset
+                                        </b>
+                                        <a href="#validate_id_token_iat_max_offset"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_id_token_iat_max_offset(dataIdToken: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, max_offset_allowed_in_seconds: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/module/services/oidc.security.validation.ts:153</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>dataIdToken</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>max_offset_allowed_in_seconds</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_id_token_iss"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_id_token_iss
+                                        </b>
+                                        <a href="#validate_id_token_iss"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_id_token_iss(dataIdToken: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, authWellKnownEndpoints_issuer: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">src/module/services/oidc.security.validation.ts:201</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>dataIdToken</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>authWellKnownEndpoints_issuer</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_id_token_nonce"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_id_token_nonce
+                                        </b>
+                                        <a href="#validate_id_token_nonce"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_id_token_nonce(dataIdToken: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, local_nonce: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">src/module/services/oidc.security.validation.ts:185</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>dataIdToken</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>local_nonce</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_required_id_token"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_required_id_token
+                                        </b>
+                                        <a href="#validate_required_id_token"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_required_id_token(dataIdToken: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/module/services/oidc.security.validation.ts:111</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>dataIdToken</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_signature_id_token"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_signature_id_token
+                                        </b>
+                                        <a href="#validate_signature_id_token"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_signature_id_token(id_token: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, jwtkeys: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">src/module/services/oidc.security.validation.ts:292</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>id_token</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>jwtkeys</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validate_userdata_sub_id_token"></a>
+                                    <span class="name">
+                                        <b>
+                                        validate_userdata_sub_id_token
+                                        </b>
+                                        <a href="#validate_userdata_sub_id_token"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validate_userdata_sub_id_token(id_token_sub: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, userdata_sub: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="271" class="link-to-prism">src/module/services/oidc.security.validation.ts:271</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>id_token_sub</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>userdata_sub</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="validateStateFromHashCallback"></a>
+                                    <span class="name">
+                                        <b>
+                                        validateStateFromHashCallback
+                                        </b>
+                                        <a href="#validateStateFromHashCallback"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>validateStateFromHashCallback(state: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, local_state: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="257" class="link-to-prism">src/module/services/oidc.security.validation.ts:257</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>state</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>local_state</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade tab-source-code" id="c-source">
+        <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+import { KJUR, KEYUTIL, hextob64u } from &#x27;jsrsasign&#x27;;
+import { ArrayHelperService } from &#x27;./oidc-array-helper.service&#x27;;
+import { TokenHelperService } from &#x27;./oidc-token-helper.service&#x27;;
+import { LoggerService } from &#x27;./oidc.logger.service&#x27;;
+
+// http://openid.net/specs/openid-connect-implicit-1_0.html
+
+// id_token
+// id_token C1: The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery)
+// MUST exactly match the value of the iss (issuer) Claim.
+//
+// id_token C2: The Client MUST validate that the aud (audience) Claim contains its client_id value registered at the Issuer identified
+// by the iss (issuer) Claim as an audience.The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience,
+// or if it contains additional audiences not trusted by the Client.
+//
+// id_token C3: If the ID Token contains multiple audiences, the Client SHOULD verify that an azp Claim is present.
+//
+// id_token C4: If an azp (authorized party) Claim is present, the Client SHOULD verify that its client_id is the Claim Value.
+//
+// id_token C5: The Client MUST validate the signature of the ID Token according to JWS [JWS] using the algorithm specified in the
+// alg Header Parameter of the JOSE Header.The Client MUST use the keys provided by the Issuer.
+//
+// id_token C6: The alg value SHOULD be RS256. Validation of tokens using other signing algorithms is described in the OpenID Connect Core 1.0
+// [OpenID.Core] specification.
+//
+// id_token C7: The current time MUST be before the time represented by the exp Claim (possibly allowing for some small leeway to account
+// for clock skew).
+//
+// id_token C8: The iat Claim can be used to reject tokens that were issued too far away from the current time,
+// limiting the amount of time that nonces need to be stored to prevent attacks.The acceptable range is Client specific.
+//
+// id_token C9: The value of the nonce Claim MUST be checked to verify that it is the same value as the one that was sent
+// in the Authentication Request.The Client SHOULD check the nonce value for replay attacks.The precise method for detecting replay attacks
+// is Client specific.
+//
+// id_token C10: If the acr Claim was requested, the Client SHOULD check that the asserted Claim Value is appropriate.
+// The meaning and processing of acr Claim Values is out of scope for this document.
+//
+// id_token C11: When a max_age request is made, the Client SHOULD check the auth_time Claim value and request re- authentication
+// if it determines too much time has elapsed since the last End- User authentication.
+
+// Access Token Validation
+// access_token C1: Hash the octets of the ASCII representation of the access_token with the hash algorithm specified in JWA[JWA]
+// for the alg Header Parameter of the ID Token&#x27;s JOSE Header. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
+// access_token C2: Take the left- most half of the hash and base64url- encode it.
+// access_token C3: The value of at_hash in the ID Token MUST match the value produced in the previous step if at_hash is present in the ID Token.
+
+@Injectable()
+export class OidcSecurityValidation {
+    constructor(
+        private arrayHelperService: ArrayHelperService,
+        private tokenHelperService: TokenHelperService,
+        private loggerService: LoggerService
+    ) {}
+
+    // id_token C7: The current time MUST be before the time represented by the exp Claim (possibly allowing for some small leeway to account for clock skew).
+    isTokenExpired(token: string, offsetSeconds?: number): boolean {
+        let decoded: any;
+        decoded &#x3D; this.tokenHelperService.getPayloadFromToken(token, false);
+
+        return !this.validate_id_token_exp_not_expired(decoded, offsetSeconds);
+    }
+
+    // id_token C7: The current time MUST be before the time represented by the exp Claim (possibly allowing for some small leeway to account for clock skew).
+    validate_id_token_exp_not_expired(
+        decoded_id_token: string,
+        offsetSeconds?: number
+    ): boolean {
+        const tokenExpirationDate &#x3D; this.tokenHelperService.getTokenExpirationDate(
+            decoded_id_token
+        );
+        offsetSeconds &#x3D; offsetSeconds || 0;
+
+        if (!tokenExpirationDate) {
+            return false;
+        }
+
+        // Token not expired?
+        return (
+            tokenExpirationDate.valueOf() &gt;
+            new Date().valueOf() + offsetSeconds * 1000
+        );
+    }
+
+    // iss
+    // REQUIRED. Issuer Identifier for the Issuer of the response.The iss value is a case-sensitive URL using the https scheme that contains scheme, host,
+    // and optionally, port number and path components and no query or fragment components.
+    //
+    // sub
+    // REQUIRED. Subject Identifier.Locally unique and never reassigned identifier within the Issuer for the End- User,
+    // which is intended to be consumed by the Client, e.g., 24400320 or AItOawmwtWwcT0k51BayewNvutrJUqsvl6qs7A4.
+    // It MUST NOT exceed 255 ASCII characters in length.The sub value is a case-sensitive string.
+    //
+    // aud
+    // REQUIRED. Audience(s) that this ID Token is intended for. It MUST contain the OAuth 2.0 client_id of the Relying Party as an audience value.
+    // It MAY also contain identifiers for other audiences.In the general case, the aud value is an array of case-sensitive strings.
+    // In the common special case when there is one audience, the aud value MAY be a single case-sensitive string.
+    //
+    // exp
+    // REQUIRED. Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+    // The processing of this parameter requires that the current date/ time MUST be before the expiration date/ time listed in the value.
+    // Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
+    // Its value is a JSON [RFC7159] number representing the number of seconds from 1970- 01 - 01T00: 00:00Z as measured in UTC until the date/ time.
+    // See RFC 3339 [RFC3339] for details regarding date/ times in general and UTC in particular.
+    //
+    // iat
+    // REQUIRED. Time at which the JWT was issued. Its value is a JSON number representing the number of seconds from 1970- 01 - 01T00: 00:00Z as measured
+    // in UTC until the date/ time.
+    validate_required_id_token(dataIdToken: any): boolean {
+        let validated &#x3D; true;
+        if (!dataIdToken.hasOwnProperty(&#x27;iss&#x27;)) {
+            validated &#x3D; false;
+            this.loggerService.logWarning(
+                &#x27;iss is missing, this is required in the id_token&#x27;
+            );
+        }
+
+        if (!dataIdToken.hasOwnProperty(&#x27;sub&#x27;)) {
+            validated &#x3D; false;
+            this.loggerService.logWarning(
+                &#x27;sub is missing, this is required in the id_token&#x27;
+            );
+        }
+
+        if (!dataIdToken.hasOwnProperty(&#x27;aud&#x27;)) {
+            validated &#x3D; false;
+            this.loggerService.logWarning(
+                &#x27;aud is missing, this is required in the id_token&#x27;
+            );
+        }
+
+        if (!dataIdToken.hasOwnProperty(&#x27;exp&#x27;)) {
+            validated &#x3D; false;
+            this.loggerService.logWarning(
+                &#x27;exp is missing, this is required in the id_token&#x27;
+            );
+        }
+
+        if (!dataIdToken.hasOwnProperty(&#x27;iat&#x27;)) {
+            validated &#x3D; false;
+            this.loggerService.logWarning(
+                &#x27;iat is missing, this is required in the id_token&#x27;
+            );
+        }
+
+        return validated;
+    }
+
+    // id_token C8: The iat Claim can be used to reject tokens that were issued too far away from the current time,
+    // limiting the amount of time that nonces need to be stored to prevent attacks.The acceptable range is Client specific.
+    validate_id_token_iat_max_offset(
+        dataIdToken: any,
+        max_offset_allowed_in_seconds: number
+    ): boolean {
+        if (!dataIdToken.hasOwnProperty(&#x27;iat&#x27;)) {
+            return false;
+        }
+
+        const dateTime_iat_id_token &#x3D; new Date(0); // The 0 here is the key, which sets the date to the epoch
+        dateTime_iat_id_token.setUTCSeconds(dataIdToken.iat);
+
+        max_offset_allowed_in_seconds &#x3D; max_offset_allowed_in_seconds || 0;
+
+        if (dateTime_iat_id_token &#x3D;&#x3D; null) {
+            return false;
+        }
+
+        this.loggerService.logDebug(
+            &#x27;validate_id_token_iat_max_offset: &#x27; +
+                (new Date().valueOf() - dateTime_iat_id_token.valueOf()) +
+                &#x27; &lt; &#x27; +
+                max_offset_allowed_in_seconds * 1000
+        );
+        return (
+            new Date().valueOf() - dateTime_iat_id_token.valueOf() &lt;
+            max_offset_allowed_in_seconds * 1000
+        );
+    }
+
+    // id_token C9: The value of the nonce Claim MUST be checked to verify that it is the same value as the one
+    // that was sent in the Authentication Request.The Client SHOULD check the nonce value for replay attacks.
+    // The precise method for detecting replay attacks is Client specific.
+    validate_id_token_nonce(dataIdToken: any, local_nonce: any): boolean {
+        if (dataIdToken.nonce !&#x3D;&#x3D; local_nonce) {
+            this.loggerService.logDebug(
+                &#x27;Validate_id_token_nonce failed, dataIdToken.nonce: &#x27; +
+                    dataIdToken.nonce +
+                    &#x27; local_nonce:&#x27; +
+                    local_nonce
+            );
+            return false;
+        }
+
+        return true;
+    }
+
+    // id_token C1: The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery)
+    // MUST exactly match the value of the iss (issuer) Claim.
+    validate_id_token_iss(
+        dataIdToken: any,
+        authWellKnownEndpoints_issuer: any
+    ): boolean {
+        if (
+            (dataIdToken.iss as string) !&#x3D;&#x3D;
+            (authWellKnownEndpoints_issuer as string)
+        ) {
+            this.loggerService.logDebug(
+                &#x27;Validate_id_token_iss failed, dataIdToken.iss: &#x27; +
+                    dataIdToken.iss +
+                    &#x27; authWellKnownEndpoints issuer:&#x27; +
+                    authWellKnownEndpoints_issuer
+            );
+            return false;
+        }
+
+        return true;
+    }
+
+    // id_token C2: The Client MUST validate that the aud (audience) Claim contains its client_id value registered at the Issuer identified
+    // by the iss (issuer) Claim as an audience.
+    // The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience, or if it contains additional audiences
+    // not trusted by the Client.
+    validate_id_token_aud(dataIdToken: any, aud: any): boolean {
+        if (dataIdToken.aud instanceof Array) {
+            const result &#x3D; this.arrayHelperService.arraysEqual(
+                dataIdToken.aud,
+                aud
+            );
+
+            if (!result) {
+                this.loggerService.logDebug(
+                    &#x27;Validate_id_token_aud  array failed, dataIdToken.aud: &#x27; +
+                        dataIdToken.aud +
+                        &#x27; client_id:&#x27; +
+                        aud
+                );
+                return false;
+            }
+
+            return true;
+        } else if (dataIdToken.aud !&#x3D;&#x3D; aud) {
+            this.loggerService.logDebug(
+                &#x27;Validate_id_token_aud failed, dataIdToken.aud: &#x27; +
+                    dataIdToken.aud +
+                    &#x27; client_id:&#x27; +
+                    aud
+            );
+
+            return false;
+        }
+
+        return true;
+    }
+
+    validateStateFromHashCallback(state: any, local_state: any): boolean {
+        if ((state as string) !&#x3D;&#x3D; (local_state as string)) {
+            this.loggerService.logDebug(
+                &#x27;ValidateStateFromHashCallback failed, state: &#x27; +
+                    state +
+                    &#x27; local_state:&#x27; +
+                    local_state
+            );
+            return false;
+        }
+
+        return true;
+    }
+
+    validate_userdata_sub_id_token(
+        id_token_sub: any,
+        userdata_sub: any
+    ): boolean {
+        if ((id_token_sub as string) !&#x3D;&#x3D; (userdata_sub as string)) {
+            this.loggerService.logDebug(
+                &#x27;validate_userdata_sub_id_token failed, id_token_sub: &#x27; +
+                    id_token_sub +
+                    &#x27; userdata_sub:&#x27; +
+                    userdata_sub
+            );
+            return false;
+        }
+
+        return true;
+    }
+
+    // id_token C5: The Client MUST validate the signature of the ID Token according to JWS [JWS] using the algorithm specified in the alg
+    // Header Parameter of the JOSE Header.The Client MUST use the keys provided by the Issuer.
+    // id_token C6: The alg value SHOULD be RS256. Validation of tokens using other signing algorithms is described in the
+    // OpenID Connect Core 1.0 [OpenID.Core] specification.
+    validate_signature_id_token(id_token: any, jwtkeys: any): boolean {
+        if (!jwtkeys || !jwtkeys.keys) {
+            return false;
+        }
+
+        const header_data &#x3D; this.tokenHelperService.getHeaderFromToken(
+            id_token,
+            false
+        );
+
+        if (
+            Object.keys(header_data).length &#x3D;&#x3D;&#x3D; 0 &amp;&amp;
+            header_data.constructor &#x3D;&#x3D;&#x3D; Object
+        ) {
+            this.loggerService.logWarning(&#x27;id token has no header data&#x27;);
+            return false;
+        }
+
+        const kid &#x3D; header_data.kid;
+        const alg &#x3D; header_data.alg;
+
+        if (&#x27;RS256&#x27; !&#x3D;&#x3D; (alg as string)) {
+            this.loggerService.logWarning(&#x27;Only RS256 supported&#x27;);
+            return false;
+        }
+
+        let isValid &#x3D; false;
+
+        if (!header_data.hasOwnProperty(&#x27;kid&#x27;)) {
+            // exactly 1 key in the jwtkeys and no kid in the Jose header
+            // kty	&quot;RSA&quot; use &quot;sig&quot;
+            let amountOfMatchingKeys &#x3D; 0;
+            for (const key of jwtkeys.keys) {
+                if (
+                    (key.kty as string) &#x3D;&#x3D;&#x3D; &#x27;RSA&#x27; &amp;&amp;
+                    (key.use as string) &#x3D;&#x3D;&#x3D; &#x27;sig&#x27;
+                ) {
+                    amountOfMatchingKeys &#x3D; amountOfMatchingKeys + 1;
+                }
+            }
+
+            if (amountOfMatchingKeys &#x3D;&#x3D;&#x3D; 0) {
+                this.loggerService.logWarning(
+                    &#x27;no keys found, incorrect Signature, validation failed for id_token&#x27;
+                );
+                return false;
+            } else if (amountOfMatchingKeys &gt; 1) {
+                this.loggerService.logWarning(
+                    &#x27;no ID Token kid claim in JOSE header and multiple supplied in jwks_uri&#x27;
+                );
+                return false;
+            } else {
+                for (const key of jwtkeys.keys) {
+                    if (
+                        (key.kty as string) &#x3D;&#x3D;&#x3D; &#x27;RSA&#x27; &amp;&amp;
+                        (key.use as string) &#x3D;&#x3D;&#x3D; &#x27;sig&#x27;
+                    ) {
+                        const publickey &#x3D; KEYUTIL.getKey(key);
+                        isValid &#x3D; KJUR.jws.JWS.verify(id_token, publickey, [
+                            &#x27;RS256&#x27;
+                        ]);
+                        if (!isValid) {
+                            this.loggerService.logWarning(
+                                &#x27;incorrect Signature, validation failed for id_token&#x27;
+                            );
+                        }
+                        return isValid;
+                    }
+                }
+            }
+        } else {
+            // kid in the Jose header of id_token
+            for (const key of jwtkeys.keys) {
+                if ((key.kid as string) &#x3D;&#x3D;&#x3D; (kid as string)) {
+                    const publickey &#x3D; KEYUTIL.getKey(key);
+                    isValid &#x3D; KJUR.jws.JWS.verify(id_token, publickey, [
+                        &#x27;RS256&#x27;
+                    ]);
+                    if (!isValid) {
+                        this.loggerService.logWarning(
+                            &#x27;incorrect Signature, validation failed for id_token&#x27;
+                        );
+                    }
+                    return isValid;
+                }
+            }
+        }
+
+        return isValid;
+    }
+
+    config_validate_response_type(response_type: string): boolean {
+        if (
+            response_type &#x3D;&#x3D;&#x3D; &#x27;id_token token&#x27; ||
+            response_type &#x3D;&#x3D;&#x3D; &#x27;id_token&#x27;
+        ) {
+            return true;
+        }
+
+        this.loggerService.logWarning(
+            &#x27;module configure incorrect, invalid response_type:&#x27; + response_type
+        );
+        return false;
+    }
+
+    // Accepts ID Token without &#x27;kid&#x27; claim in JOSE header if only one JWK supplied in &#x27;jwks_url&#x27;
+    //// private validate_no_kid_in_header_only_one_allowed_in_jwtkeys(header_data: any, jwtkeys: any): boolean {
+    ////    this.oidcSecurityCommon.logDebug(&#x27;amount of jwtkeys.keys: &#x27; + jwtkeys.keys.length);
+    ////    if (!header_data.hasOwnProperty(&#x27;kid&#x27;)) {
+    ////        // no kid defined in Jose header
+    ////        if (jwtkeys.keys.length !&#x3D; 1) {
+    ////            this.oidcSecurityCommon.logDebug(&#x27;jwtkeys.keys.length !&#x3D; 1 and no kid in header&#x27;);
+    ////            return false;
+    ////        }
+    ////    }
+
+    ////    return true;
+    //// }
+
+    // Access Token Validation
+    // access_token C1: Hash the octets of the ASCII representation of the access_token with the hash algorithm specified in JWA[JWA]
+    // for the alg Header Parameter of the ID Token&#x27;s JOSE Header. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
+    // access_token C2: Take the left- most half of the hash and base64url- encode it.
+    // access_token C3: The value of at_hash in the ID Token MUST match the value produced in the previous step if at_hash
+    // is present in the ID Token.
+    validate_id_token_at_hash(access_token: any, at_hash: any): boolean {
+        this.loggerService.logDebug(&#x27;From the server:&#x27; + at_hash);
+        const testdata &#x3D; this.generate_at_hash(&#x27;&#x27; + access_token);
+        this.loggerService.logDebug(
+            &#x27;client validation not decoded:&#x27; + testdata
+        );
+        if (testdata &#x3D;&#x3D;&#x3D; (at_hash as string)) {
+            return true; // isValid;
+        } else {
+            const testValue &#x3D; this.generate_at_hash(
+                &#x27;&#x27; + decodeURIComponent(access_token)
+            );
+            this.loggerService.logDebug(&#x27;-gen access--&#x27; + testValue);
+            if (testValue &#x3D;&#x3D;&#x3D; (at_hash as string)) {
+                return true; // isValid
+            }
+        }
+
+        return false;
+    }
+
+    private generate_at_hash(access_token: any): string {
+        const hash &#x3D; KJUR.crypto.Util.hashString(access_token, &#x27;sha256&#x27;);
+        const first128bits &#x3D; hash.substr(0, hash.length / 2);
+        const testdata &#x3D; hextob64u(first128bits);
+
+        return testdata;
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>

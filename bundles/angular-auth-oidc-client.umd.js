@@ -14153,6 +14153,7 @@ var OidcSecurityService = (function () {
         decoded_id_token = decoded_id_token
             ? decoded_id_token
             : this.tokenHelperService.getPayloadFromToken(id_token, false);
+        console.log('id_token: ', id_token);
         return new Observable.Observable(function (observer) {
             // flow id_token token
             if (_this.authConfiguration.response_type === 'id_token token') {
