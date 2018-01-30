@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('rxjs/Observable'), require('@angular/router'), require('jsrsasign')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', 'rxjs/Observable', '@angular/router', 'jsrsasign'], factory) :
-	(factory((global.angularAuthOidcClient = {}),global.ng.core,global.ng.common,global.Rx,global.ng.router,global.jsrsasign));
-}(this, (function (exports,core,common,Observable,router,jsrsasign) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/http'), require('@angular/common'), require('rxjs/Observable'), require('@angular/router'), require('jsrsasign')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/http', '@angular/common', 'rxjs/Observable', '@angular/router', 'jsrsasign'], factory) :
+	(factory((global.angularAuthOidcClient = {}),global.ng.core,global.ng.http,global.ng.common,global.Rx,global.ng.router,global.jsrsasign));
+}(this, (function (exports,core,http,common,Observable,router,jsrsasign) { 'use strict';
 
 var ArrayHelperService = (function () {
     function ArrayHelperService() {
@@ -14600,7 +14600,14 @@ var AuthModule = (function () {
         };
     };
     AuthModule.decorators = [
-        { type: core.NgModule },
+        { type: core.NgModule, args: [{
+                    imports: [
+                        http.HttpModule,
+                        HttpClientModule
+                    ],
+                    exports: [],
+                    declarations: []
+                },] },
     ];
     /** @nocollapse */
     AuthModule.ctorParameters = function () { return []; };

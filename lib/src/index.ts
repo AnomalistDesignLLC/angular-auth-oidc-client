@@ -14,6 +14,8 @@
  */
 import { ArrayHelperService } from './module/services/oidc-array-helper.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { HttpModule, RequestOptions, Http, XHRBackend, BaseRequestOptions } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { OidcSecurityService } from './module/services/oidc.security.service';
 import { AuthConfiguration, DefaultConfiguration, OpenIDImplicitFlowConfiguration } from './module/modules/auth.configuration';
@@ -23,8 +25,8 @@ import { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-
 import { OidcSecurityUserService } from './module/services/oidc.security.user-service';
 import { OidcSecurityCommon } from './module/services/oidc.security.common';
 import {
-    OidcSecurityStorage,
-    BrowserStorage
+  OidcSecurityStorage,
+  BrowserStorage
 } from './module/services/oidc.security.storage';
 import { StateValidationService } from './module/services/oidc-security-state-validation.service';
 import { OidcDataService } from './module/services/oidc-data.service';
@@ -49,8 +51,8 @@ export { OidcSecuritySilentRenew } from './module/services/oidc.security.silent-
 export { OidcSecurityUserService } from './module/services/oidc.security.user-service';
 export { OidcSecurityCommon } from './module/services/oidc.security.common';
 export {
-    OidcSecurityStorage,
-    BrowserStorage
+  OidcSecurityStorage,
+  BrowserStorage
 } from './module/services/oidc.security.storage';
 export { StateValidationService } from './module/services/oidc-security-state-validation.service';
 export { OidcDataService } from './module/services/oidc-data.service';
@@ -65,34 +67,41 @@ export { AuthWellKnownEndpoints } from './module/models/auth.well-known-endpoint
  * @export
  * @class AuthModule
  */
-@NgModule()
+@NgModule({
+  imports: [
+    HttpModule,
+    HttpClientModule
+  ],
+  exports: [],
+  declarations: []
+})
 export class AuthModule {
-    static forRoot(token: Token = {}): ModuleWithProviders {
-        return {
-            ngModule: AuthModule,
-            providers: [
-                OidcConfigService,
-                OidcSecurityService,
-                OidcSecurityValidation,
-                OidcSecurityCheckSession,
-                OidcSecuritySilentRenew,
-                OidcSecurityUserService,
-                OidcSecurityCommon,
-                AuthConfiguration,
-                TokenHelperService,
-                LoggerService,
-                DefaultConfiguration,
-                ArrayHelperService,
-                AuthWellKnownEndpoints,
-                OidcDataService,
-                StateValidationService,
-                {
-                    provide: OidcSecurityStorage,
-                    useClass: token.storage || BrowserStorage
-                }
-            ]
-        };
-    }
+  static forRoot(token: Token = {}): ModuleWithProviders {
+    return {
+      ngModule: AuthModule,
+      providers: [
+        OidcConfigService,
+        OidcSecurityService,
+        OidcSecurityValidation,
+        OidcSecurityCheckSession,
+        OidcSecuritySilentRenew,
+        OidcSecurityUserService,
+        OidcSecurityCommon,
+        AuthConfiguration,
+        TokenHelperService,
+        LoggerService,
+        DefaultConfiguration,
+        ArrayHelperService,
+        AuthWellKnownEndpoints,
+        OidcDataService,
+        StateValidationService,
+        {
+          provide: OidcSecurityStorage,
+          useClass: token.storage || BrowserStorage
+        }
+      ]
+    };
+  }
 }
 
 /**
@@ -104,7 +113,7 @@ export class AuthModule {
  * @template T 
  */
 export interface Type<T> extends Function {
-    new (...args: any[]): T;
+  new (...args: any[]): T;
 }
 
 /**
@@ -114,5 +123,5 @@ export interface Type<T> extends Function {
  * @interface Token
  */
 export interface Token {
-    storage?: Type<any>;
+  storage?: Type<any>;
 }

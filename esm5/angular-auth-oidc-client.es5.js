@@ -1,4 +1,5 @@
 import { EventEmitter, Inject, Injectable, InjectionToken, NgModule, Optional, Output, PLATFORM_ID } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { DOCUMENT, isPlatformBrowser, ɵparseCookieValue } from '@angular/common';
 import { Observable as Observable$1 } from 'rxjs/Observable';
 import { Router } from '@angular/router';
@@ -14600,7 +14601,14 @@ var AuthModule = (function () {
         };
     };
     AuthModule.decorators = [
-        { type: NgModule },
+        { type: NgModule, args: [{
+                    imports: [
+                        HttpModule,
+                        HttpClientModule
+                    ],
+                    exports: [],
+                    declarations: []
+                },] },
     ];
     /** @nocollapse */
     AuthModule.ctorParameters = function () { return []; };
