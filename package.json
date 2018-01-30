@@ -39,8 +39,6 @@
     "@angular/platform-webworker-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "@angular/upgrade": "^5.2.0",
-    "@ngx-translate/core": "^9.0.2",
-    "@ngx-translate/http-loader": "^2.0.1",
     "core-js": "^2.4.1",
     "jsrsasign": "git+https://github.com/AnomalistDesignLLC/jsrsasign.git",
     "rxjs": "^5.5.2",
