@@ -13498,22 +13498,23 @@ class OidcDataService {
     }
     getWellknownEndpoints(url) {
         let headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
+        headers = headers.set('Accept', 'application/json');
         return this.httpClient.get(url, {
             headers: headers
         });
     }
     getIdentityUserData(url, token) {
         let headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
-        headers = headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+        headers = headers
+            .set('Accept', 'application/json')
+            .set('Authorization', 'Bearer ' + decodeURIComponent(token));
         return this.httpClient.get(url, {
             headers: headers
         });
     }
     get(url) {
         let headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
+        headers = headers.set('Accept', 'application/json');
         return this.httpClient.get(url, {
             headers: headers
         });

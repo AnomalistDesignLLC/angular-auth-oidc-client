@@ -779,7 +779,7 @@ export class OidcDataService {
 
     getWellknownEndpoints&lt;T&gt;(url: string): Observable&lt;T&gt; {
         let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.append(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+        headers &#x3D; headers.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
 
         return this.httpClient.get&lt;T&gt;(url, {
             headers: headers
@@ -788,11 +788,11 @@ export class OidcDataService {
 
     getIdentityUserData&lt;T&gt;(url: string, token: string): Observable&lt;T&gt; {
         let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.append(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
-        headers &#x3D; headers.append(
+        headers &#x3D; headers
+            .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;)
+            .set(
             &#x27;Authorization&#x27;,
-            &#x27;Bearer &#x27; + decodeURIComponent(token)
-        );
+            &#x27;Bearer &#x27; + decodeURIComponent(token));
 
         return this.httpClient.get&lt;T&gt;(url, {
             headers: headers
@@ -801,7 +801,7 @@ export class OidcDataService {
 
     get&lt;T&gt;(url: string): Observable&lt;T&gt; {
         let headers &#x3D; new HttpHeaders();
-        headers &#x3D; headers.append(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+        headers &#x3D; headers.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
 
         return this.httpClient.get&lt;T&gt;(url, {
             headers: headers

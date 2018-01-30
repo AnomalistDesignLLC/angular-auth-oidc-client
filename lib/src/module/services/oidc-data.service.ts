@@ -8,7 +8,7 @@ export class OidcDataService {
 
     getWellknownEndpoints<T>(url: string): Observable<T> {
         let headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
+        headers = headers.set('Accept', 'application/json');
 
         return this.httpClient.get<T>(url, {
             headers: headers
@@ -17,11 +17,11 @@ export class OidcDataService {
 
     getIdentityUserData<T>(url: string, token: string): Observable<T> {
         let headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
-        headers = headers.append(
+        headers = headers
+            .set('Accept', 'application/json')
+            .set(
             'Authorization',
-            'Bearer ' + decodeURIComponent(token)
-        );
+            'Bearer ' + decodeURIComponent(token));
 
         return this.httpClient.get<T>(url, {
             headers: headers
@@ -30,7 +30,7 @@ export class OidcDataService {
 
     get<T>(url: string): Observable<T> {
         let headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
+        headers = headers.set('Accept', 'application/json');
 
         return this.httpClient.get<T>(url, {
             headers: headers

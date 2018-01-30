@@ -13770,22 +13770,23 @@ var OidcDataService = (function () {
     }
     OidcDataService.prototype.getWellknownEndpoints = function (url) {
         var headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
+        headers = headers.set('Accept', 'application/json');
         return this.httpClient.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.getIdentityUserData = function (url, token) {
         var headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
-        headers = headers.append('Authorization', 'Bearer ' + decodeURIComponent(token));
+        headers = headers
+            .set('Accept', 'application/json')
+            .set('Authorization', 'Bearer ' + decodeURIComponent(token));
         return this.httpClient.get(url, {
             headers: headers
         });
     };
     OidcDataService.prototype.get = function (url) {
         var headers = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
+        headers = headers.set('Accept', 'application/json');
         return this.httpClient.get(url, {
             headers: headers
         });
