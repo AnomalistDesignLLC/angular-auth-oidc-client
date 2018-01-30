@@ -577,7 +577,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/module/services/oidc-data.service.ts:31</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/module/services/oidc-data.service.ts:33</a></div>
                                         </td>
                                     </tr>
             
@@ -793,6 +793,8 @@ export class OidcDataService {
             &#x27;Authorization&#x27;,
             &#x27;Bearer &#x27; + decodeURIComponent(token)
         );
+
+        console.log(&#x27;getIdentityUserData_token: &#x27;, &#x27;Bearer &#x27; + decodeURIComponent(token));
 
         return this.httpClient.get&lt;T&gt;(url, {
             headers: headers

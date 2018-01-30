@@ -13507,6 +13507,7 @@ class OidcDataService {
         let headers = new HttpHeaders();
         headers = headers.set('Accept', 'application/json');
         headers = headers.set('Authorization', 'Bearer ' + decodeURIComponent(token));
+        console.log('getIdentityUserData_token: ', 'Bearer ' + decodeURIComponent(token));
         return this.httpClient.get(url, {
             headers: headers
         });
@@ -13550,6 +13551,7 @@ class OidcSecurityUserService {
     }
     getIdentityUserData() {
         const token = this.oidcSecurityCommon.getAccessToken();
+        console.log('getIdentityUserData_token: ', token);
         return this.oidcDataService.getIdentityUserData(this.authWellKnownEndpoints.userinfo_endpoint, token);
     }
 }
@@ -13867,7 +13869,7 @@ class OidcSecurityService {
         decoded_id_token = decoded_id_token
             ? decoded_id_token
             : this.tokenHelperService.getPayloadFromToken(id_token, false);
-        console.log('id_token: ', id_token);
+        console.log(this.authConfiguration);
         return new Observable$1((observer) => {
             // flow id_token token
             if (this.authConfiguration.response_type === 'id_token token') {
