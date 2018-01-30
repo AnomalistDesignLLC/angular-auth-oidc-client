@@ -23,6 +23,8 @@ export class OidcDataService {
             'Bearer ' + decodeURIComponent(token)
         );
 
+        console.log('getIdentityUserData_token: ', 'Bearer ' + decodeURIComponent(token));
+
         return this.httpClient.get<T>(url, {
             headers: headers
         });
