@@ -10796,7 +10796,6 @@ var OidcSecurityUserService = (function () {
     };
     OidcSecurityUserService.prototype.getIdentityUserData = function () {
         var token = this.oidcSecurityCommon.getAccessToken();
-        console.log('getIdentityUserData_token: ', token);
         return this.oidcDataService.getIdentityUserData(this.authWellKnownEndpoints.userinfo_endpoint, token);
     };
     OidcSecurityUserService.decorators = [

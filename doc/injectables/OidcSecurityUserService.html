@@ -965,8 +965,6 @@ export class OidcSecurityUserService {
     private getIdentityUserData(): Observable&lt;any&gt; {
         const token &#x3D; this.oidcSecurityCommon.getAccessToken();
 
-        console.log(&#x27;getIdentityUserData_token: &#x27;, token);
-
         return this.oidcDataService.getIdentityUserData(
             this.authWellKnownEndpoints.userinfo_endpoint,
             token
