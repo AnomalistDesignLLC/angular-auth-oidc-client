@@ -10665,10 +10665,7 @@ class OidcSecurityService {
         try {
             if (this._popup.location.href !== 'about:blank' && this._popup.location.href !== undefined) {
                 let a = this._popup.location.href.split('/');
-                console.log('hello world');
-                console.log(a);
                 a = a[(a.length - 1)];
-                console.log('hi');
                 if (a !== 'login') {
                     this._popup.close();
                     if (!this._popup || this._popup.closed) {
