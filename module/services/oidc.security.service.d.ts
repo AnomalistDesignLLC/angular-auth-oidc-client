@@ -1,6 +1,7 @@
 import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 import { AuthorizationResult } from '../models/authorization-result.enum';
 import { AuthConfiguration, OpenIDImplicitFlowConfiguration } from '../modules/auth.configuration';
 import { StateValidationService } from './oidc-security-state-validation.service';
@@ -26,6 +27,7 @@ export declare class OidcSecurityService {
     private oidcSecurityValidation;
     private tokenHelperService;
     private loggerService;
+    private httpClient;
     onModuleSetup: EventEmitter<boolean>;
     onAuthorizationResult: EventEmitter<AuthorizationResult>;
     onCheckSessionChanged: EventEmitter<boolean>;
@@ -46,7 +48,7 @@ export declare class OidcSecurityService {
     private _popupFor;
     private authenticationScheme;
     private loginMethod;
-    constructor(platformId: Object, oidcDataService: OidcDataService, stateValidationService: StateValidationService, authConfiguration: AuthConfiguration, router: Router, oidcSecurityCheckSession: OidcSecurityCheckSession, oidcSecuritySilentRenew: OidcSecuritySilentRenew, oidcSecurityUserService: OidcSecurityUserService, oidcSecurityCommon: OidcSecurityCommon, oidcSecurityValidation: OidcSecurityValidation, tokenHelperService: TokenHelperService, loggerService: LoggerService);
+    constructor(platformId: Object, oidcDataService: OidcDataService, stateValidationService: StateValidationService, authConfiguration: AuthConfiguration, router: Router, oidcSecurityCheckSession: OidcSecurityCheckSession, oidcSecuritySilentRenew: OidcSecuritySilentRenew, oidcSecurityUserService: OidcSecurityUserService, oidcSecurityCommon: OidcSecurityCommon, oidcSecurityValidation: OidcSecurityValidation, tokenHelperService: TokenHelperService, loggerService: LoggerService, httpClient: HttpClient);
     setupModule(openIDImplicitFlowConfiguration: OpenIDImplicitFlowConfiguration, authWellKnownEndpoints: AuthWellKnownEndpoints): void;
     getUserData(): Observable<any>;
     getIsAuthorized(): Observable<boolean>;
@@ -65,7 +67,7 @@ export declare class OidcSecurityService {
     authorize(authenticationScheme?: string, loginMethod?: string): void;
     authorizedCallback(hash?: string): void;
     getUserinfo(isRenewProcess?: boolean, result?: any, id_token?: any, decoded_id_token?: any): Observable<boolean>;
-    logoff(): void;
+    logoff(): Promise<void>;
     refreshSession(): void;
     handleError(error: any): void;
     private getValidatedStateResult(result, jwtKeys);

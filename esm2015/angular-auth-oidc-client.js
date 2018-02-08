@@ -10403,6 +10403,31 @@ class OidcSecuritySilentRenew {
     constructor(loggerService) {
         this.loggerService = loggerService;
     }
+    logout(url) {
+        this.sessionIframeLogout = window.document.createElement('iframe');
+        this.sessionIframeLogout.id = 'myiFrameForSilentLogout';
+        this.sessionIframeLogout.style.display = 'none';
+        window.document.body.appendChild(this.sessionIframeLogout);
+        this.sessionIframeLogout.src = url;
+        this._checkForIFrameLogoutSrc = window.setInterval(() => {
+            this.logoutIFrameCleanUp();
+        }, 2000);
+        return Observable$1.create((observer) => {
+            this.sessionIframeLogout.onload = () => {
+                observer.next(this.sessionIframeLogout);
+                observer.complete();
+            };
+        });
+    }
+    logoutIFrameCleanUp() {
+        this.sessionIframeLogout.src = '';
+        window.clearInterval(this._checkForIFrameLogoutSrc);
+        this._checkForIFrameLogoutSrc = null;
+        this.sessionIframeLogout = null;
+    }
+    removeiFrameForSilentLogout() {
+        console.log(this.sessionIframeLogout);
+    }
     initRenew() {
         let existsparent;
         try {
@@ -10549,8 +10574,16 @@ class UriEncoder {
     }
 }
 
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 class OidcSecurityService {
-    constructor(platformId, oidcDataService, stateValidationService, authConfiguration, router$$1, oidcSecurityCheckSession, oidcSecuritySilentRenew, oidcSecurityUserService, oidcSecurityCommon, oidcSecurityValidation, tokenHelperService, loggerService) {
+    constructor(platformId, oidcDataService, stateValidationService, authConfiguration, router$$1, oidcSecurityCheckSession, oidcSecuritySilentRenew, oidcSecurityUserService, oidcSecurityCommon, oidcSecurityValidation, tokenHelperService, loggerService, httpClient) {
         this.platformId = platformId;
         this.oidcDataService = oidcDataService;
         this.stateValidationService = stateValidationService;
@@ -10563,6 +10596,7 @@ class OidcSecurityService {
         this.oidcSecurityValidation = oidcSecurityValidation;
         this.tokenHelperService = tokenHelperService;
         this.loggerService = loggerService;
+        this.httpClient = httpClient;
         this.onModuleSetup = new EventEmitter();
         this.onAuthorizationResult = new EventEmitter();
         this.onCheckSessionChanged = new EventEmitter();
@@ -10890,26 +10924,30 @@ class OidcSecurityService {
         });
     }
     logoff() {
-        // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
-        this.loggerService.logDebug('BEGIN Authorize, no auth data');
-        if (this.authWellKnownEndpoints.end_session_endpoint) {
-            const end_session_endpoint = this.authWellKnownEndpoints
-                .end_session_endpoint;
-            const id_token_hint = this.oidcSecurityCommon.idToken;
-            const url = this.createEndSessionUrl(end_session_endpoint, id_token_hint);
-            this.resetAuthorizationData(false);
-            if (this.authConfiguration.start_checksession &&
-                this.checkSessionChanged) {
-                this.loggerService.logDebug('only local login cleaned up, server session has changed');
+        return __awaiter(this, void 0, void 0, function* () {
+            // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
+            this.loggerService.logDebug('BEGIN Authorize, no auth data');
+            if (this.authWellKnownEndpoints.end_session_endpoint) {
+                const end_session_endpoint = this.authWellKnownEndpoints
+                    .end_session_endpoint;
+                const id_token_hint = this.oidcSecurityCommon.idToken;
+                const url = this.createEndSessionUrl(end_session_endpoint, id_token_hint);
+                this.resetAuthorizationData(false);
+                if (this.authConfiguration.start_checksession &&
+                    this.checkSessionChanged) {
+                    this.loggerService.logDebug('only local login cleaned up, server session has changed');
+                }
+                else {
+                    // window.location.href = url;
+                    yield this.oidcSecuritySilentRenew.logout(url);
+                    this.oidcSecuritySilentRenew.removeiFrameForSilentLogout();
+                }
             }
             else {
-                window.location.href = url;
+                this.resetAuthorizationData(false);
+                this.loggerService.logDebug('only local login cleaned up, no end_session_endpoint');
             }
-        }
-        else {
-            this.resetAuthorizationData(false);
-            this.loggerService.logDebug('only local login cleaned up, no end_session_endpoint');
-        }
+        });
     }
     refreshSession() {
         this.loggerService.logDebug('BEGIN refresh session Authorize');
@@ -11098,6 +11136,7 @@ OidcSecurityService.ctorParameters = () => [
     { type: OidcSecurityValidation, },
     { type: TokenHelperService, },
     { type: LoggerService, },
+    { type: HttpClient, },
 ];
 OidcSecurityService.propDecorators = {
     "onModuleSetup": [{ type: Output },],
@@ -11105,7 +11144,7 @@ OidcSecurityService.propDecorators = {
     "onCheckSessionChanged": [{ type: Output },],
 };
 
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$1 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -11118,21 +11157,21 @@ class OidcConfigService {
         this.onConfigurationLoaded = new EventEmitter();
     }
     load(configUrl) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return __awaiter$1(this, void 0, void 0, function* () {
             const response = yield fetch(configUrl);
             this.clientConfiguration = yield response.json();
             yield this.load_using_stsServer(this.clientConfiguration.stsServer);
         });
     }
     load_using_stsServer(stsServer) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return __awaiter$1(this, void 0, void 0, function* () {
             const response = yield fetch(`${stsServer}/.well-known/openid-configuration`);
             this.wellKnownEndpoints = yield response.json();
             this.onConfigurationLoaded.emit();
         });
     }
     load_using_custom_stsServer(stsServer) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return __awaiter$1(this, void 0, void 0, function* () {
             const response = yield fetch(stsServer);
             this.wellKnownEndpoints = yield response.json();
             this.onConfigurationLoaded.emit();

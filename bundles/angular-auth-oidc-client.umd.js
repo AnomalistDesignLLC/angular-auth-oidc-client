@@ -10668,6 +10668,32 @@ var OidcSecuritySilentRenew = (function () {
     function OidcSecuritySilentRenew(loggerService) {
         this.loggerService = loggerService;
     }
+    OidcSecuritySilentRenew.prototype.logout = function (url) {
+        var _this = this;
+        this.sessionIframeLogout = window.document.createElement('iframe');
+        this.sessionIframeLogout.id = 'myiFrameForSilentLogout';
+        this.sessionIframeLogout.style.display = 'none';
+        window.document.body.appendChild(this.sessionIframeLogout);
+        this.sessionIframeLogout.src = url;
+        this._checkForIFrameLogoutSrc = window.setInterval(function () {
+            _this.logoutIFrameCleanUp();
+        }, 2000);
+        return Observable.Observable.create(function (observer) {
+            _this.sessionIframeLogout.onload = function () {
+                observer.next(_this.sessionIframeLogout);
+                observer.complete();
+            };
+        });
+    };
+    OidcSecuritySilentRenew.prototype.logoutIFrameCleanUp = function () {
+        this.sessionIframeLogout.src = '';
+        window.clearInterval(this._checkForIFrameLogoutSrc);
+        this._checkForIFrameLogoutSrc = null;
+        this.sessionIframeLogout = null;
+    };
+    OidcSecuritySilentRenew.prototype.removeiFrameForSilentLogout = function () {
+        console.log(this.sessionIframeLogout);
+    };
     OidcSecuritySilentRenew.prototype.initRenew = function () {
         var existsparent;
         try {
@@ -10825,8 +10851,43 @@ var UriEncoder = (function () {
     return UriEncoder;
 }());
 
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 var OidcSecurityService = (function () {
-    function OidcSecurityService(platformId, oidcDataService, stateValidationService, authConfiguration, router$$1, oidcSecurityCheckSession, oidcSecuritySilentRenew, oidcSecurityUserService, oidcSecurityCommon, oidcSecurityValidation, tokenHelperService, loggerService) {
+    function OidcSecurityService(platformId, oidcDataService, stateValidationService, authConfiguration, router$$1, oidcSecurityCheckSession, oidcSecuritySilentRenew, oidcSecurityUserService, oidcSecurityCommon, oidcSecurityValidation, tokenHelperService, loggerService, httpClient) {
         this.platformId = platformId;
         this.oidcDataService = oidcDataService;
         this.stateValidationService = stateValidationService;
@@ -10839,6 +10900,7 @@ var OidcSecurityService = (function () {
         this.oidcSecurityValidation = oidcSecurityValidation;
         this.tokenHelperService = tokenHelperService;
         this.loggerService = loggerService;
+        this.httpClient = httpClient;
         this.onModuleSetup = new core.EventEmitter();
         this.onAuthorizationResult = new core.EventEmitter();
         this.onCheckSessionChanged = new core.EventEmitter();
@@ -11178,26 +11240,41 @@ var OidcSecurityService = (function () {
         });
     };
     OidcSecurityService.prototype.logoff = function () {
-        // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
-        this.loggerService.logDebug('BEGIN Authorize, no auth data');
-        if (this.authWellKnownEndpoints.end_session_endpoint) {
-            var end_session_endpoint = this.authWellKnownEndpoints
-                .end_session_endpoint;
-            var id_token_hint = this.oidcSecurityCommon.idToken;
-            var url = this.createEndSessionUrl(end_session_endpoint, id_token_hint);
-            this.resetAuthorizationData(false);
-            if (this.authConfiguration.start_checksession &&
-                this.checkSessionChanged) {
-                this.loggerService.logDebug('only local login cleaned up, server session has changed');
-            }
-            else {
-                window.location.href = url;
-            }
-        }
-        else {
-            this.resetAuthorizationData(false);
-            this.loggerService.logDebug('only local login cleaned up, no end_session_endpoint');
-        }
+        return __awaiter(this, void 0, void 0, function () {
+            var end_session_endpoint, id_token_hint, url;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
+                        this.loggerService.logDebug('BEGIN Authorize, no auth data');
+                        if (!this.authWellKnownEndpoints.end_session_endpoint) return [3 /*break*/, 4];
+                        end_session_endpoint = this.authWellKnownEndpoints
+                            .end_session_endpoint;
+                        id_token_hint = this.oidcSecurityCommon.idToken;
+                        url = this.createEndSessionUrl(end_session_endpoint, id_token_hint);
+                        this.resetAuthorizationData(false);
+                        if (!(this.authConfiguration.start_checksession &&
+                            this.checkSessionChanged)) return [3 /*break*/, 1];
+                        this.loggerService.logDebug('only local login cleaned up, server session has changed');
+                        return [3 /*break*/, 3];
+                    case 1: 
+                    // window.location.href = url;
+                    return [4 /*yield*/, this.oidcSecuritySilentRenew.logout(url)];
+                    case 2:
+                        // window.location.href = url;
+                        // window.location.href = url;
+                        _a.sent();
+                        this.oidcSecuritySilentRenew.removeiFrameForSilentLogout();
+                        _a.label = 3;
+                    case 3: return [3 /*break*/, 5];
+                    case 4:
+                        this.resetAuthorizationData(false);
+                        this.loggerService.logDebug('only local login cleaned up, no end_session_endpoint');
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
     };
     OidcSecurityService.prototype.refreshSession = function () {
         this.loggerService.logDebug('BEGIN refresh session Authorize');
@@ -11386,6 +11463,7 @@ var OidcSecurityService = (function () {
         { type: OidcSecurityValidation, },
         { type: TokenHelperService, },
         { type: LoggerService, },
+        { type: http$1.HttpClient, },
     ]; };
     OidcSecurityService.propDecorators = {
         "onModuleSetup": [{ type: core.Output },],
@@ -11395,7 +11473,7 @@ var OidcSecurityService = (function () {
     return OidcSecurityService;
 }());
 
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$1 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -11403,7 +11481,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+var __generator$1 = (undefined && undefined.__generator) || function (thisArg, body) {
     var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
     return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
@@ -11435,9 +11513,9 @@ var OidcConfigService = (function () {
         this.onConfigurationLoaded = new core.EventEmitter();
     }
     OidcConfigService.prototype.load = function (configUrl) {
-        return __awaiter(this, void 0, void 0, function () {
+        return __awaiter$1(this, void 0, void 0, function () {
             var response, _a;
-            return __generator(this, function (_b) {
+            return __generator$1(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, fetch(configUrl)];
                     case 1:
@@ -11455,9 +11533,9 @@ var OidcConfigService = (function () {
         });
     };
     OidcConfigService.prototype.load_using_stsServer = function (stsServer) {
-        return __awaiter(this, void 0, void 0, function () {
+        return __awaiter$1(this, void 0, void 0, function () {
             var response, _a;
-            return __generator(this, function (_b) {
+            return __generator$1(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, fetch(stsServer + "/.well-known/openid-configuration")];
                     case 1:
@@ -11473,9 +11551,9 @@ var OidcConfigService = (function () {
         });
     };
     OidcConfigService.prototype.load_using_custom_stsServer = function (stsServer) {
-        return __awaiter(this, void 0, void 0, function () {
+        return __awaiter$1(this, void 0, void 0, function () {
             var response, _a;
-            return __generator(this, function (_b) {
+            return __generator$1(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, fetch(stsServer)];
                     case 1:

@@ -489,7 +489,15 @@
                                 <ul class="index-list">
                                     <li>
                                             <span class="modifier">Private</span>
+                                        <a href="#_checkForIFrameLogoutSrc">_checkForIFrameLogoutSrc</a>
+                                    </li>
+                                    <li>
+                                            <span class="modifier">Private</span>
                                         <a href="#sessionIframe">sessionIframe</a>
+                                    </li>
+                                    <li>
+                                            <span class="modifier">Private</span>
+                                        <a href="#sessionIframeLogout">sessionIframeLogout</a>
                                     </li>
                                 </ul>
                             </td>
@@ -504,6 +512,15 @@
                                 <ul class="index-list">
                                     <li>
                                         <a href="#initRenew">initRenew</a>
+                                    </li>
+                                    <li>
+                                        <a href="#logout">logout</a>
+                                    </li>
+                                    <li>
+                                        <a href="#logoutIFrameCleanUp">logoutIFrameCleanUp</a>
+                                    </li>
+                                    <li>
+                                        <a href="#removeiFrameForSilentLogout">removeiFrameForSilentLogout</a>
                                     </li>
                                     <li>
                                         <a href="#startRenew">startRenew</a>
@@ -526,7 +543,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:8</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:10</a></div>
                                         </td>
                                     </tr>
             
@@ -589,7 +606,147 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:12</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:42</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="logout"></a>
+                                    <span class="name">
+                                        <b>
+                                        logout
+                                        </b>
+                                        <a href="#logout"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>logout(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:14</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>url</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="logoutIFrameCleanUp"></a>
+                                    <span class="name">
+                                        <b>
+                                        logoutIFrameCleanUp
+                                        </b>
+                                        <a href="#logoutIFrameCleanUp"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>logoutIFrameCleanUp()</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:31</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="removeiFrameForSilentLogout"></a>
+                                    <span class="name">
+                                        <b>
+                                        removeiFrameForSilentLogout
+                                        </b>
+                                        <a href="#removeiFrameForSilentLogout"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>removeiFrameForSilentLogout()</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:38</a></div>
                                         </td>
                                     </tr>
             
@@ -626,7 +783,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:42</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:72</a></div>
                                         </td>
                                     </tr>
             
@@ -681,6 +838,41 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <a name="_checkForIFrameLogoutSrc"></a>
+                                    <span class="name">
+                                        <b>
+                                            <span class="modifier">Private</span>
+                                        _checkForIFrameLogoutSrc
+                                        </b>
+                                        <a href="#_checkForIFrameLogoutSrc"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-reset"></span><code>_checkForIFrameLogoutSrc:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:10</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <a name="sessionIframe"></a>
                                     <span class="name">
                                         <b>
@@ -712,6 +904,41 @@
             
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="sessionIframeLogout"></a>
+                                    <span class="name">
+                                        <b>
+                                            <span class="modifier">Private</span>
+                                        sessionIframeLogout
+                                        </b>
+                                        <a href="#sessionIframeLogout"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-reset"></span><code>sessionIframeLogout:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/module/services/oidc.security.silent-renew.ts:9</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
             </section>
 
     </div>
@@ -725,69 +952,99 @@ import { LoggerService } from &#x27;./oidc.logger.service&#x27;;
 
 @Injectable()
 export class OidcSecuritySilentRenew {
-    private sessionIframe: any;
+ private sessionIframe: any;
+ private sessionIframeLogout: any;
+ private _checkForIFrameLogoutSrc: any;
 
-    constructor(private loggerService: LoggerService) {}
+ constructor(private loggerService: LoggerService) {}
 
-    initRenew() {
-        let existsparent;
-        try {
-            const parentdoc &#x3D; window.parent.document;
-            if (!parentdoc) {
-                throw new Error(&#x27;Unaccessible&#x27;);
-            }
+ logout(url: string) {
+  this.sessionIframeLogout &#x3D; window.document.createElement(&#x27;iframe&#x27;);
+  this.sessionIframeLogout.id &#x3D; &#x27;myiFrameForSilentLogout&#x27;;
+  this.sessionIframeLogout.style.display &#x3D; &#x27;none&#x27;;
+  window.document.body.appendChild(this.sessionIframeLogout);
+  this.sessionIframeLogout.src &#x3D; url;
+  this._checkForIFrameLogoutSrc &#x3D; window.setInterval(() &#x3D;&gt; {
+    this.logoutIFrameCleanUp();
+  }, 2000);
+  return Observable.create((observer: Observer&lt;any&gt;) &#x3D;&gt; {
+   this.sessionIframeLogout.onload &#x3D; () &#x3D;&gt; {
+    observer.next(this.sessionIframeLogout);
+    observer.complete();
+   };
+  });
+ }
 
-            existsparent &#x3D; parentdoc.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
-        } catch (e) {
-            // not accessible
-        }
-        const exists &#x3D; window.document.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
-        if (existsparent) {
-            this.sessionIframe &#x3D; existsparent;
-        } else if (exists) {
-            this.sessionIframe &#x3D; exists;
-        }
+ logoutIFrameCleanUp() {
+  this.sessionIframeLogout.src &#x3D; &#x27;&#x27;;
+  window.clearInterval(this._checkForIFrameLogoutSrc);
+  this._checkForIFrameLogoutSrc &#x3D; null;
+  this.sessionIframeLogout &#x3D; null;
+ }
 
-        if (!exists &amp;&amp; !existsparent) {
-            this.sessionIframe &#x3D; window.document.createElement(&#x27;iframe&#x27;);
-            this.sessionIframe.id &#x3D; &#x27;myiFrameForSilentRenew&#x27;;
-            this.loggerService.logDebug(this.sessionIframe);
-            this.sessionIframe.style.display &#x3D; &#x27;none&#x27;;
+ removeiFrameForSilentLogout() {
+  console.log(this.sessionIframeLogout);
+ }
 
-            window.document.body.appendChild(this.sessionIframe);
-        }
-    }
+ initRenew() {
+  let existsparent;
+  try {
+   const parentdoc &#x3D; window.parent.document;
+   if (!parentdoc) {
+    throw new Error(&#x27;Unaccessible&#x27;);
+   }
 
-    // TODO The return type of this method is never used. Is it needed?
-    startRenew(url: string) {
-        let existsparent;
-        try {
-            const parentdoc &#x3D; window.parent.document;
-            if (!parentdoc) {
-                throw new Error(&#x27;Unaccessible&#x27;);
-            }
+   existsparent &#x3D; parentdoc.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
+  } catch (e) {
+   // not accessible
+  }
+  const exists &#x3D; window.document.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
+  if (existsparent) {
+   this.sessionIframe &#x3D; existsparent;
+  } else if (exists) {
+   this.sessionIframe &#x3D; exists;
+  }
 
-            existsparent &#x3D; parentdoc.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
-        } catch (e) {
-            // not accessible
-        }
-        const exists &#x3D; window.document.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
-        if (existsparent) {
-            this.sessionIframe &#x3D; existsparent;
-        } else if (exists) {
-            this.sessionIframe &#x3D; exists;
-        }
+  if (!exists &amp;&amp; !existsparent) {
+   this.sessionIframe &#x3D; window.document.createElement(&#x27;iframe&#x27;);
+   this.sessionIframe.id &#x3D; &#x27;myiFrameForSilentRenew&#x27;;
+   this.loggerService.logDebug(this.sessionIframe);
+   this.sessionIframe.style.display &#x3D; &#x27;none&#x27;;
 
-        this.loggerService.logDebug(&#x27;startRenew for URL:&#x27; + url);
-        this.sessionIframe.src &#x3D; url;
+   window.document.body.appendChild(this.sessionIframe);
+  }
+ }
 
-        return Observable.create((observer: Observer&lt;any&gt;) &#x3D;&gt; {
-            this.sessionIframe.onload &#x3D; () &#x3D;&gt; {
-                observer.next(this);
-                observer.complete();
-            };
-        });
-    }
+ // TODO The return type of this method is never used. Is it needed?
+ startRenew(url: string) {
+  let existsparent;
+  try {
+   const parentdoc &#x3D; window.parent.document;
+   if (!parentdoc) {
+    throw new Error(&#x27;Unaccessible&#x27;);
+   }
+
+   existsparent &#x3D; parentdoc.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
+  } catch (e) {
+   // not accessible
+  }
+  const exists &#x3D; window.document.getElementById(&#x27;myiFrameForSilentRenew&#x27;);
+  if (existsparent) {
+   this.sessionIframe &#x3D; existsparent;
+  } else if (exists) {
+   this.sessionIframe &#x3D; exists;
+  }
+
+  this.loggerService.logDebug(&#x27;startRenew for URL:&#x27; + url);
+  this.sessionIframe.src &#x3D; url;
+
+  return Observable.create((observer: Observer&lt;any&gt;) &#x3D;&gt; {
+   this.sessionIframe.onload &#x3D; () &#x3D;&gt; {
+    observer.next(this);
+    observer.complete();
+   };
+  });
+ }
 }
 </code></pre>
     </div>
