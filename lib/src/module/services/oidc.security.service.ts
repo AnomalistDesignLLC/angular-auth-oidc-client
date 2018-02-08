@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { timer } from 'rxjs/observable/timer';
 import { catchError, pluck, take, timeInterval } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthorizationResult } from '../models/authorization-result.enum';
 import { JwtKeys } from '../models/jwtkeys';
@@ -67,7 +68,8 @@ export class OidcSecurityService {
     private oidcSecurityCommon: OidcSecurityCommon,
     private oidcSecurityValidation: OidcSecurityValidation,
     private tokenHelperService: TokenHelperService,
-    private loggerService: LoggerService
+    private loggerService: LoggerService,
+    private httpClient: HttpClient
   ) {}
 
   setupModule(
@@ -188,11 +190,9 @@ export class OidcSecurityService {
   }
 
   popup_cleanup() {
-
     window.clearInterval(this._checkForPopupClosedTimer);
     this._checkForPopupClosedTimer = null;
     this._popup = null;
-
   }
 
   _checkForPopupClosed() {
@@ -503,7 +503,7 @@ export class OidcSecurityService {
     });
   }
 
-  logoff() {
+  async logoff() {
     // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
     this.loggerService.logDebug('BEGIN Authorize, no auth data');
 
@@ -526,7 +526,9 @@ export class OidcSecurityService {
           'only local login cleaned up, server session has changed'
         );
       } else {
-        window.location.href = url;
+        // window.location.href = url;
+        await this.oidcSecuritySilentRenew.logout(url);
+        this.oidcSecuritySilentRenew.removeiFrameForSilentLogout();
       }
     } else {
       this.resetAuthorizationData(false);
